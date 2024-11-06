@@ -1,8 +1,17 @@
+import { Routes, Route, Navigate } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import QuizPage from "./pages/QuizPage";
+import ResultsPage from "./pages/ResultsPage";
+
 function App() {
 
   return (
     <>
-      <h1 className="text-slate-700 text-5xl">Let the fighting commence!</h1>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/quiz" element={<QuizPage />} />
+        <Route path="/results" element={<ResultsPage />} />
+      </Routes>
     </>
   )
 }
