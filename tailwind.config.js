@@ -17,6 +17,10 @@ export default {
 					900: "#483C38",
 					950: "#120F0E",
 				},
+				accent: {
+					blue: "#4e556f",
+					navy: "#2f4858",
+				},
 			},
 			backgroundImage: {
 				fyord: "url('/background.jpg')",
