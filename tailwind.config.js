@@ -5,6 +5,7 @@ export default {
 		extend: {
 			colors: {
 				neutral: {
+					"alpha-900": "#483C38B3",
 					50: "#F6F4F4",
 					100: "#EFECEB",
 					200: "#E6E1DF",
@@ -20,6 +21,8 @@ export default {
 				accent: {
 					blue: "#4e556f",
 					navy: "#2f4858",
+					red: "#9a2418",
+					pink: "#9a6d80",
 				},
 			},
 			backgroundImage: {

@@ -1,8 +1,11 @@
-import React from 'react'
 
-const QuizPage = () => {
+import QuestionContainer from "../components/QuestionContainer";
+
+const QuizPage = ({ setCorrectAnswers }) => {
   return (
-    <div>QuizPage</div>
+    <article className="w-full h-full">
+      <QuestionContainer setCorrectAnswers={setCorrectAnswers}  />
+    </article>
   )
 }
 
