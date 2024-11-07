@@ -4,7 +4,7 @@ export const questions = [
   return [arr[2], arr[1], arr[0]];
 }`,
 		choices: [
-			"Fix the first & last elements of an array",
+			"Flip the first & last elements of an array",
 			"Reverse the order of an array",
 			"Return the middle element of an array",
 			"Concatenate two arrays",
@@ -113,7 +113,7 @@ export const questions = [
 			"Counts how many times an item appears in the array.",
 			"Removes the item from the array if it exists.",
 		],
-    correctAnswerIndex: 0,  
+		correctAnswerIndex: 0,
 	},
 	{
 		code: `function midgard(str) {
