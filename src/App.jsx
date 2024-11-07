@@ -13,8 +13,20 @@ function App() {
     <main className="min-h-screen md:w-5/6 lg:w-3/5 xl:ms-52 mx-auto flex flex-col justify-center items-center">
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/quiz" element={<QuizPage setQuizOver={setQuizOver} setCorrectAnswers={setCorrectAnswers} setUserChoices={setUserChoices} quizOver={quizOver} userChoices={userChoices} />} />
-        <Route path="/results" element={<ResultsPage correctAnswers={correctAnswers} userChoices={userChoices} quizOver={quizOver} />} />
+        <Route path="/quiz" element={
+          <QuizPage
+            setQuizOver={setQuizOver}
+            setCorrectAnswers={setCorrectAnswers}
+            setUserChoices={setUserChoices}
+            quizOver={quizOver}
+            userChoices={userChoices}
+          />} />
+        <Route path="/results" element={
+          <ResultsPage
+            correctAnswers={correctAnswers}
+            userChoices={userChoices}
+            quizOver={quizOver}
+          />} />
       </Routes>
     </main>
   )

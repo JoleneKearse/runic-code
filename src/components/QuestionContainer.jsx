@@ -5,9 +5,16 @@ import Code from "./Code";
 import MultipleChoice from "./MultipleChoice";
 import Button from "./Button";
 
-const QuestionContainer = ({ setCorrectAnswers, userChoices, setUserChoices, setQuizOver, quizOver }) => {
+const QuestionContainer = ({
+  setCorrectAnswers,
+  userChoices,
+  setUserChoices,
+  setQuizOver,
+  quizOver
+}) => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const navigate = useNavigate();
+
   const getButtonText = () => {
     if (currentQuestion !== 9 && !quizOver) {
       return "Submit";
@@ -15,13 +22,13 @@ const QuestionContainer = ({ setCorrectAnswers, userChoices, setUserChoices, set
       return "Get my score!";
     } else if (currentQuestion !== 9 && quizOver) {
       return "Go again?"
-    } else {
+    } else if (currentQuestion === 9 && quizOver) {
       return "Next!";
     }
   };
 
   const handleClick = () => {
-    if (quizOver && currentQuestion === 9) {
+    if (quizOver && currentQuestion !== 9) {
       setQuizOver(false);
       setCurrentQuestion(0);
       setCorrectAnswers(0);
@@ -53,7 +60,10 @@ const QuestionContainer = ({ setCorrectAnswers, userChoices, setUserChoices, set
           currentQuestion={currentQuestion}
         />
       }
-      <Button text={getButtonText()} onClick={handleClick} />
+      <Button
+        text={getButtonText()}
+        onClick={handleClick}
+      />
     </article>
   )
 }
