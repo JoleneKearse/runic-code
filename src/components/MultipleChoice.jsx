@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useState } from "react";
 
 const MultipleChoice = ({
   choices,
@@ -9,34 +9,28 @@ const MultipleChoice = ({
   quizOver,
   currentQuestion
 }) => {
-  useEffect(() => {
-    const button = document.querySelectorAll(".bg-neutral-800");
-    button.forEach((btn) => {
-      btn.classList.remove("bg-neutral-900");
-      btn.classList.add("bg-neutral-800");
-    });
-  }, [currentQuestion])
+  const [selectedChoice, setSelectedChoice] = useState(null);
 
   const handleQuestionClick = (index) => {
-    const button = document.querySelectorAll(".bg-neutral-800");
-    button.forEach((btn, btnIndex) => {
-      if (btnIndex === index) {
-        btn.classList.add("bg-neutral-900");
-      } else {
-        btn.classList.add("bg-neutral-800");
-      }
-    });
+    setSelectedChoice(index);
+
     if (index === correctAnswerIndex) {
       setCorrectAnswers((prev) => prev + 1);
     };
-    setUserChoices((prev) => [...prev, index]);
+
+    setUserChoices((prev) => {
+      const newChoice = [...prev];
+      newChoice[currentQuestion] = index;
+      return newChoice;
+    });
   };
 
   const determineButtonBgColorBasedOnState = (index) => {
-    if (!quizOver) return "bg-neutral-800";
+    if (!quizOver) {
+      return selectedChoice === index ? "bg-neutral-900" : "bg-neutral-800";
+    }
     if (index === correctAnswerIndex) return "bg-accent-pink";
     if (userChoices[currentQuestion] === index && index !== correctAnswerIndex) return "bg-accent-red";
-    return "bg-neutral-800";
   };
 
   return (
@@ -55,4 +49,4 @@ const MultipleChoice = ({
   )
 }
 
-export default MultipleChoice
+export default MultipleChoice;

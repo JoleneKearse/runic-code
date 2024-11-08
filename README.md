@@ -54,39 +54,25 @@ And, lastly, I ran pell-mell with the Viking theme.  I even tried to craft all m
 
 ## Challenges Solved
 
-### Signal Chosen Choice
+### Allow only one choice
 
-I wanted to visual signally which multiple choice the user selects. I accomplished this in my `MultipleChoice` component.
+I tackled this challenge after getting the main functionality working.  I know people often second guess their choices, so it was important to only include one choice per question in the `userChoices` state and update the button color to avoid confusion.
+
+I decided to keep track using a `selectedChoice` state, which I could set on each button click in the `MultipleChoice` component.
+
+I needed to update this code, which sets the `userChoice` immediately:
 
 ```javascript
-button.forEach((btn, btnIndex) => {
-  if (btnIndex === index) {
-    btn.classList.add("bg-neutral-900");
-  } else {
-    btn.classList.add("bg-neutral-800");
-  }
+setUserChoices((prev) => [...prev, index]);
+```
+
+This copies the `userChoice` array, then places the last choice in. No matter how many times the user changes their mind, each click overwrites the last.
+```javascript
+setUserChoices((prev) => {
+  const newChoice = [...prev];
+  newChoice[currentQuestion] = index;
+  return newChoice;
 });
-```
-
-I wanted to change all choices back to the default color when the "Cast Answer" button in `QuestionContainer` was clicked.
-
-Originally, I tried
-```javascript
-const button = document.querySelectorAll(".bg-neutral-900");
-button.classList.remove("bg-neutral-900");
-button.classList.add("bg-neutral-800");
-```
-but this component doesn't have access to `MulitpleChoice`'s buttons.
-
-I realized `useEffect` is for handling side effects, so:
-```javascript
-useEffect(() => {
-  const button = document.querySelectorAll(".bg-neutral-800");
-  button.forEach((btn) => {
-    btn.classList.remove("bg-neutral-900");
-    btn.classList.add("bg-neutral-800");
-  });
-}, [currentQuestion])
 ```
 
 
