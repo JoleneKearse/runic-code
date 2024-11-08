@@ -6,40 +6,52 @@ import MultipleChoice from "./MultipleChoice";
 import Button from "./Button";
 
 const QuestionContainer = ({
+  quizOver,
+  setQuizOver,
   setCorrectAnswers,
   userChoices,
   setUserChoices,
-  setQuizOver,
-  quizOver
 }) => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const navigate = useNavigate();
 
-  const getButtonText = () => {
-    if (currentQuestion !== 9 && !quizOver) {
-      return "Submit";
-    } else if (!quizOver) {
-      return "Get my score!";
-    } else if (currentQuestion !== 9 && quizOver) {
-      return "Go again?"
-    } else if (currentQuestion === 9 && quizOver) {
-      return "Next!";
+  const setButtonText = () => {
+    if (userChoices.length >= 10 && !quizOver) {
+      return "Claim My Plunder!";
+    }
+  
+    if (!quizOver) {
+      return "Cast Answer";
+    }
+  
+    if (quizOver) {
+      if (currentQuestion !== 9) {
+        return "Onward!";
+      } else {
+        return "Return to the Battlefield";
+      }
     }
   };
 
   const handleClick = () => {
     if (quizOver && currentQuestion !== 9) {
+      // reset quiz
       setQuizOver(false);
       setCurrentQuestion(0);
       setCorrectAnswers(0);
       setUserChoices([]);
       navigate("/quiz");
-    }
-    if (currentQuestion !== 9) {
-      setCurrentQuestion(currentQuestion + 1);
-    } else {
-      setQuizOver(true);
-      navigate("/results");
+    };
+
+    if (!quizOver) {
+      if (currentQuestion !== 9) {
+        // more to next question
+        setCurrentQuestion(currentQuestion + 1);
+      } else {
+        // quiz over & go to results page
+        setQuizOver(true);
+        navigate("/results");
+      }
     }
   };
 
@@ -51,17 +63,17 @@ const QuestionContainer = ({
       }
       {currentQuestion !== 10 &&
         <MultipleChoice
+          quizOver={quizOver}
+          currentQuestion={currentQuestion}
           choices={questions[currentQuestion].choices}
           correctAnswerIndex={questions[currentQuestion].correctAnswerIndex}
           setCorrectAnswers={setCorrectAnswers}
           userChoices={userChoices}
           setUserChoices={setUserChoices}
-          quizOver={quizOver}
-          currentQuestion={currentQuestion}
         />
       }
       <Button
-        text={getButtonText()}
+        text={setButtonText()}
         onClick={handleClick}
       />
     </article>

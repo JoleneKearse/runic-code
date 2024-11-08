@@ -54,6 +54,40 @@ And, lastly, I ran pell-mell with the Viking theme.  I even tried to craft all m
 
 ## Challenges Solved
 
+### Signal Chosen Choice
+
+I wanted to visual signally which multiple choice the user selects. I accomplished this in my `MultipleChoice` component.
+
+```javascript
+button.forEach((btn, btnIndex) => {
+  if (btnIndex === index) {
+    btn.classList.add("bg-neutral-900");
+  } else {
+    btn.classList.add("bg-neutral-800");
+  }
+});
+```
+
+I wanted to change all choices back to the default color when the "Cast Answer" button in `QuestionContainer` was clicked.
+
+Originally, I tried
+```javascript
+const button = document.querySelectorAll(".bg-neutral-900");
+button.classList.remove("bg-neutral-900");
+button.classList.add("bg-neutral-800");
+```
+but this component doesn't have access to `MulitpleChoice`'s buttons.
+
+I realized `useEffect` is for handling side effects, so:
+```javascript
+useEffect(() => {
+  const button = document.querySelectorAll(".bg-neutral-800");
+  button.forEach((btn) => {
+    btn.classList.remove("bg-neutral-900");
+    btn.classList.add("bg-neutral-800");
+  });
+}, [currentQuestion])
+```
 
 
 ## Getting Started

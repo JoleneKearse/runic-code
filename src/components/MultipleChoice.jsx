@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 const MultipleChoice = ({
   choices,
   setCorrectAnswers,
@@ -7,7 +9,23 @@ const MultipleChoice = ({
   quizOver,
   currentQuestion
 }) => {
+  useEffect(() => {
+    const button = document.querySelectorAll(".bg-neutral-800");
+    button.forEach((btn) => {
+      btn.classList.remove("bg-neutral-900");
+      btn.classList.add("bg-neutral-800");
+    });
+  }, [currentQuestion])
+
   const handleQuestionClick = (index) => {
+    const button = document.querySelectorAll(".bg-neutral-800");
+    button.forEach((btn, btnIndex) => {
+      if (btnIndex === index) {
+        btn.classList.add("bg-neutral-900");
+      } else {
+        btn.classList.add("bg-neutral-800");
+      }
+    });
     if (index === correctAnswerIndex) {
       setCorrectAnswers((prev) => prev + 1);
     };
