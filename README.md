@@ -4,7 +4,7 @@
 
 **Runic Code** is a **Viking-themed JavaScript DSA quiz game**, because I *correctly* saw the high market demand! ⚔️
 
-Reading code and identifying it's purpose is a valuable skill, but isn't often taught.  At least, until you starting working with a team and doing code reviews, self-taught devs don't often get the chance to bolster this skill.
+Reading code and identifying it's purpose is a valuable skill, but isn't often taught.  Until they starting working with teams and doing code reviews, self-taught devs often don't get the chance to bolster this skill.
 
 I took [Codewars](https://www.codewars.com/) katas I'd personally completed, tossed them up on screen and provided multiple choice questions explaining their purpose.  
 
@@ -14,7 +14,7 @@ This app gives users the opportunity to read, digest, and choose the meaning of 
 
 - Users arrive on the landing page with a cryptic, and slightly less cryptic, description of the quiz, hopefully preparing them for the Viking turns of phrases used throughout.
 - Once they decide to "*battle*", 10 questions appear one-by-one.
-- Each question is a **JavaScript** function that they should work at underderstanding.
+- Each question is a **JavaScript** function that they should work at understanding.
 - They get four possible answers and can only choose one.
 - They submit, or *Cast*, each answer, until all are complete.
 - The button changes to *Claim my plunder!* to go to the ResultsPage.
@@ -33,7 +33,7 @@ I used [react-syntax-highlighter](https://www.npmjs.com/package/react-syntax-hig
 - wrapping lines, and
 - custom styles.
 
-The last was great as *solarized* looked great, but I could apply a a background colour from my Tailwind config.  
+The last was great as *solarized* looked fantastic, but I could apply a background colour from my Tailwind config.  
 
 ```javascript
 const customStyle = {
@@ -53,6 +53,8 @@ const customStyle = {
 And, lastly, I ran pell-mell with the Viking theme.  I even tried to craft all my commit messages in Viking-inspired language!  I named all the functions and buttons accordingly. *We all get our fun in in different ways!* 🤷‍♀️
 
 ## Challenges Solved
+
+
 
 ## Getting Started
 
