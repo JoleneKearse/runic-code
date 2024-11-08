@@ -5,11 +5,17 @@ const Code = ({ code }) => {
   const customStyle = {
     borderRadius: "0.5rem",
     backgroundColor: "#483C38",
-  }
+  };
+  
   return (
-      <SyntaxHighlighter language="javascript" style={solarizedlight} customStyle={customStyle} showLineNumbers wrapLines>
-        {code}
-      </SyntaxHighlighter>
+    <SyntaxHighlighter
+      language="javascript"
+      style={solarizedlight}
+      customStyle={customStyle}
+      showLineNumbers wrapLines
+    >
+      {code}
+    </SyntaxHighlighter>
   )
 }
 

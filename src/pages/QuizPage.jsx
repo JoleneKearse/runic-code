@@ -1,15 +1,21 @@
 
 import QuestionContainer from "../components/QuestionContainer";
 
-const QuizPage = ({ setQuizOver, setCorrectAnswers, userChoices, setUserChoices, quizOver }) => {
+const QuizPage = ({
+  quizOver,
+  setQuizOver,
+  setCorrectAnswers,
+  userChoices,
+  setUserChoices,
+}) => {
   return (
     <article className="w-full h-full">
-      <QuestionContainer 
-        setQuizOver={setQuizOver} 
-        setCorrectAnswers={setCorrectAnswers} 
-        userChoices={userChoices} 
-        setUserChoices={setUserChoices} 
-        quizOver={quizOver} 
+      <QuestionContainer
+        quizOver={quizOver}
+        setQuizOver={setQuizOver}
+        setCorrectAnswers={setCorrectAnswers}
+        userChoices={userChoices}
+        setUserChoices={setUserChoices}
       />
     </article>
   )

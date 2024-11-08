@@ -3,8 +3,11 @@ import QuestionContainer from '../components/QuestionContainer'
 
 const ResultsPage = ({
   correctAnswers,
+  setCorrectAnswers,
   userChoices,
-  quizOver
+  setUserChoices,
+  quizOver,
+  setQuizOver
 }) => {
   return (
     <article>
@@ -12,12 +15,15 @@ const ResultsPage = ({
         You got {correctAnswers} answer{correctAnswers !== 1 ? "s" : ""} correct!
       </p>
       <QuestionContainer
-        correctAnswers={correctAnswers}
-        userChoices={userChoices}
         quizOver={quizOver}
+        setQuizOver={setQuizOver}
+        correctAnswers={correctAnswers}
+        setCorrectAnswers={setCorrectAnswers}
+        userChoices={userChoices}
+        setUserChoices={setUserChoices}
       />
     </article>
   )
 }
 
-export default ResultsPage
+export default ResultsPage;

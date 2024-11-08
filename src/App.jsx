@@ -15,17 +15,20 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/quiz" element={
           <QuizPage
+            quizOver={quizOver}
             setQuizOver={setQuizOver}
             setCorrectAnswers={setCorrectAnswers}
-            setUserChoices={setUserChoices}
-            quizOver={quizOver}
             userChoices={userChoices}
+            setUserChoices={setUserChoices}
           />} />
         <Route path="/results" element={
           <ResultsPage
-            correctAnswers={correctAnswers}
-            userChoices={userChoices}
             quizOver={quizOver}
+            setQuizOver={setQuizOver}
+            correctAnswers={correctAnswers}
+            setCorrectAnswers={setCorrectAnswers}
+            userChoices={userChoices}
+            setUserChoices={setUserChoices}
           />} />
       </Routes>
     </main>
