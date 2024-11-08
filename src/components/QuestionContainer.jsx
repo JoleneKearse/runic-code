@@ -17,7 +17,7 @@ const QuestionContainer = ({
 
   const setButtonText = () => {
     if (userChoices.length >= 10 && !quizOver) {
-      return "Claim My Plunder!";
+      return "⚔ Claim My Plunder! ⚔";
     }
   
     if (!quizOver) {
@@ -28,31 +28,33 @@ const QuestionContainer = ({
       if (currentQuestion !== 9) {
         return "Onward!";
       } else {
-        return "Return to the Battlefield";
+        return "⚔ Return to the Battlefield ⚔";
       }
     }
   };
 
   const handleClick = () => {
-    if (quizOver && currentQuestion !== 9) {
-      // reset quiz
-      setQuizOver(false);
-      setCurrentQuestion(0);
-      setCorrectAnswers(0);
-      setUserChoices([]);
-      navigate("/quiz");
-    };
-
-    if (!quizOver) {
+    if (quizOver) {
       if (currentQuestion !== 9) {
-        // more to next question
         setCurrentQuestion(currentQuestion + 1);
       } else {
-        // quiz over & go to results page
+        // reset quiz
+        setQuizOver(false);
+        setCurrentQuestion(0);
+        setCorrectAnswers(0);
+        setUserChoices([]);
+        navigate("/quiz");
+      }
+    } else {
+      if (currentQuestion !== 9) {
+        // move to next question
+        setCurrentQuestion(currentQuestion + 1);
+      } else {
+        // quiz over & go to ResultsPage
         setQuizOver(true);
         navigate("/results");
       }
-    }
+    };
   };
 
   return (
