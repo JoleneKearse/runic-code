@@ -1,4 +1,3 @@
-
 import QuestionContainer from "../components/QuestionContainer";
 
 const QuizPage = ({

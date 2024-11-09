@@ -10,6 +10,8 @@ export const questions = [
 			"Concatenate two arrays",
 		],
 		correctAnswerIndex: 0,
+		attribution: "PG1",
+		attributionLink: "https://www.codewars.com/users/PG1",
 	},
 	{
 		code: `function thor(health) {
@@ -22,6 +24,8 @@ export const questions = [
 			"Checks if health is greater than zero.",
 		],
 		correctAnswerIndex: 3,
+		attribution: "danleavitt0",
+		attributionLink: "https://www.codewars.com/users/danleavitt0",
 	},
 	{
 		code: `function vallhalla(n){
@@ -34,6 +38,8 @@ export const questions = [
 			"Creates an array of n even numbers.",
 		],
 		correctAnswerIndex: 1,
+		attribution: "wichu",
+		attributionLink: "https://www.codewars.com/users/wichu",
 	},
 	{
 		code: `function loki(n, x, y) {
@@ -46,6 +52,8 @@ export const questions = [
 			"Determines if x and y are factors of n.",
 		],
 		correctAnswerIndex: 1,
+		attribution: "naaz",
+		attributionLink: "https://www.codewars.com/users/naaz",
 	},
 	{
 		code: `function mjolnir(bool){
@@ -58,6 +66,8 @@ export const questions = [
 			"Converts a boolean to a string.",
 		],
 		correctAnswerIndex: 0,
+		attribution: "weavermedia",
+		attributionLink: "https://www.codewars.com/users/weavermedia",
 	},
 	{
 		code: `const asgard = (arr) => {
@@ -71,6 +81,8 @@ export const questions = [
 			"Inverts the sign of all non-zero numbers in an array.",
 		],
 		correctAnswerIndex: 3,
+		attribution: "user7657844",
+		attributionLink: "https://www.codewars.com/users/user7657844",
 	},
 	{
 		code: `function fenrir(a, b, c) {
@@ -90,6 +102,8 @@ export const questions = [
 			"Returns the maximum result of different arithmetic operations on a, b, and c.",
 		],
 		correctAnswerIndex: 3,
+		attribution: "MrZizoScream",
+		attributionLink: "https://www.codewars.com/users/MrZizoScream",
 	},
 	{
 		code: `function bifrost(normPrice, discount, hol): number{
@@ -102,6 +116,8 @@ export const questions = [
 			"Calculates the total savings from a discount.",
 		],
 		correctAnswerIndex: 1,
+		attribution: "PG1",
+		attributionLink: "https://www.codewars.com/users/PG1",
 	},
 	{
 		code: `function baldur(arr, item){
@@ -114,6 +130,8 @@ export const questions = [
 			"Removes the item from the array if it exists.",
 		],
 		correctAnswerIndex: 0,
+		attribution: "bellmyer",
+		attributionLink: "https://www.codewars.com/users/bellmyer",
 	},
 	{
 		code: `function midgard(str) {
@@ -126,5 +144,7 @@ export const questions = [
 			"Checks if the first character in the string is uppercase.",
 		],
 		correctAnswerIndex: 0,
+		attribution: "donaldsebleung",
+		attributionLink: "https://www.codewars.com/users/donaldsebleung",
 	},
 ];
