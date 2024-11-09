@@ -12,6 +12,8 @@ export const questions = [
 		correctAnswerIndex: 0,
 		attribution: "PG1",
 		attributionLink: "https://www.codewars.com/users/PG1",
+		furtherReading:
+			"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array",
 	},
 	{
 		code: `function thor(health) {
@@ -26,6 +28,8 @@ export const questions = [
 		correctAnswerIndex: 3,
 		attribution: "danleavitt0",
 		attributionLink: "https://www.codewars.com/users/danleavitt0",
+		furtherReading:
+			"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Greater_than",
 	},
 	{
 		code: `function vallhalla(n){
@@ -40,6 +44,8 @@ export const questions = [
 		correctAnswerIndex: 1,
 		attribution: "wichu",
 		attributionLink: "https://www.codewars.com/users/wichu",
+		furtherReading:
+			"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array",
 	},
 	{
 		code: `function loki(n, x, y) {
@@ -54,6 +60,8 @@ export const questions = [
 		correctAnswerIndex: 1,
 		attribution: "naaz",
 		attributionLink: "https://www.codewars.com/users/naaz",
+		furtherReading:
+			"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND",
 	},
 	{
 		code: `function mjolnir(bool){
@@ -68,6 +76,8 @@ export const questions = [
 		correctAnswerIndex: 0,
 		attribution: "weavermedia",
 		attributionLink: "https://www.codewars.com/users/weavermedia",
+		furtherReading:
+			"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator",
 	},
 	{
 		code: `const asgard = (arr) => {
@@ -83,6 +93,8 @@ export const questions = [
 		correctAnswerIndex: 3,
 		attribution: "user7657844",
 		attributionLink: "https://www.codewars.com/users/user7657844",
+		furtherReading:
+			"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/abs",
 	},
 	{
 		code: `function fenrir(a, b, c) {
@@ -104,9 +116,11 @@ export const questions = [
 		correctAnswerIndex: 3,
 		attribution: "MrZizoScream",
 		attributionLink: "https://www.codewars.com/users/MrZizoScream",
+		furtherReading:
+			"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/max",
 	},
 	{
-		code: `function bifrost(normPrice, discount, hol): number{
+		code: `function bifrost(normPrice, discount, hol) {
   return Math.floor(hol / (normPrice * (discount / 100)));
 }`,
 		choices: [
@@ -118,6 +132,8 @@ export const questions = [
 		correctAnswerIndex: 1,
 		attribution: "PG1",
 		attributionLink: "https://www.codewars.com/users/PG1",
+		furtherReading:
+			"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/floor",
 	},
 	{
 		code: `function baldur(arr, item){
@@ -132,6 +148,8 @@ export const questions = [
 		correctAnswerIndex: 0,
 		attribution: "bellmyer",
 		attributionLink: "https://www.codewars.com/users/bellmyer",
+		furtherReading:
+			"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some",
 	},
 	{
 		code: `function midgard(str) {
@@ -146,5 +164,7 @@ export const questions = [
 		correctAnswerIndex: 0,
 		attribution: "donaldsebleung",
 		attributionLink: "https://www.codewars.com/users/donaldsebleung",
+		furtherReading:
+			"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every",
 	},
 ];

@@ -69,6 +69,17 @@ const MultipleChoice = ({
               </a>
             </p>
           )}
+          {quizOver && userChoices[currentQuestion] !== correctAnswerIndex && (
+            <p className="fixed bottom-2 w-full text-neutral-700">
+              <a 
+                href={questions[currentQuestion].furtherReading} 
+                target="_blank" rel="noopener noreferrer"
+                className="text-accent-red"
+              >
+                Strengthen for next battle
+              </a>
+            </p>
+          )}
         </li>
       ))}
     </ol>
