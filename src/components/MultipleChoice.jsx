@@ -70,11 +70,11 @@ const MultipleChoice = ({
             </p>
           )}
           {quizOver && userChoices[currentQuestion] !== correctAnswerIndex && (
-            <p className="fixed bottom-2 w-full text-neutral-700">
+            <p className="fixed bottom-2 w-full">
               <a 
                 href={questions[currentQuestion].furtherReading} 
                 target="_blank" rel="noopener noreferrer"
-                className="text-accent-red"
+                className="text-accent-red motion-safe:animate-ping duration-75"
               >
                 Strengthen for next battle
               </a>

@@ -24,11 +24,11 @@ const ResultsPage = ({
 
   return (
     <article>
-      <div className="mt-6 py-2 px-4 bg-accent-pink">
+      <div className="mt-6 py-2 px-4 bg-accent-pink rounded-lg">
         <p className="text-neutral-900 text-3xl font-black md:text-4xl lg:text-5xl">
           You slayed {correctAnswers} answer{correctAnswers !== 1 ? "s" : ""}!
         </p>
-        <p className="text-neutral-100 text-xl font-black md:text-2xl lg:text-3xl">
+        <p className="mt-4 text-neutral-100 text-xl font-black md:text-2xl lg:text-3xl">
           {congratulationsMessages[correctAnswers]}
         </p>
       </div>
