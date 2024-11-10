@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { questions } from "../data/data";
 
 const MultipleChoice = ({
@@ -47,42 +47,45 @@ const MultipleChoice = ({
   };
 
   return (
-    <ol className="flex flex-col gap-6 text-left">
-      {choices.map((choice, index) => (
-        <li key={index}>
-          <button
-            className={` text-neutral-100 py-2 px-4 rounded-lg ${determineButtonBgColorBasedOnState(index)}`}
-            onClick={() => handleQuestionClick(index)}
-            disabled={quizOver}
+    <>
+      <ol className="flex flex-col gap-6 text-left">
+        {choices.map((choice, index) => (
+          <li key={index}>
+            <button
+              className={` text-neutral-100 py-2 px-4 rounded-lg ${determineButtonBgColorBasedOnState(index)}`}
+              onClick={() => handleQuestionClick(index)}
+              disabled={quizOver}
+            >
+              {choice}
+            </button>
+
+          </li>
+        ))}
+      </ol>
+      {!quizOver && (
+        <p className="fixed bottom-2 w-full text-neutral-700">
+          Kata created by{" "}
+          <a
+            href={questions[currentQuestion].attributionLink}
+            target="_blank" rel="noopener noreferrer"
+            className="text-neutral-800"
           >
-            {choice}
-          </button>
-          {!quizOver && (
-            <p className="fixed bottom-2 w-full text-neutral-700">
-              Kata created by{" "}
-              <a 
-                href={questions[currentQuestion].attributionLink} 
-                target="_blank" rel="noopener noreferrer"
-                className="text-neutral-800"
-              >
-                {questions[currentQuestion].attribution}
-              </a>
-            </p>
-          )}
-          {quizOver && userChoices[currentQuestion] !== correctAnswerIndex && (
-            <p className="fixed bottom-2 w-full">
-              <a 
-                href={questions[currentQuestion].furtherReading} 
-                target="_blank" rel="noopener noreferrer"
-                className="text-accent-red motion-safe:animate-ping duration-75"
-              >
-                Strengthen for next battle
-              </a>
-            </p>
-          )}
-        </li>
-      ))}
-    </ol>
+            {questions[currentQuestion].attribution}
+          </a>
+        </p>
+      )}
+      {quizOver && userChoices[currentQuestion] !== correctAnswerIndex && (
+        <p className="fixed bottom-2 w-full">
+          <a
+            href={questions[currentQuestion].furtherReading}
+            target="_blank" rel="noopener noreferrer"
+            className="text-accent-red motion-safe:animate-ping duration-75"
+          >
+            Strengthen for next battle
+          </a>
+        </p>
+      )}
+    </>
   )
 }
 
