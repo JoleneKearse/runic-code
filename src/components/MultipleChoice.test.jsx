@@ -1,7 +1,7 @@
 import React from "react";
 import MultipleChoice from "./MultipleChoice";
 // import { questions as mockQuestions } from "../data/data";
-import { render, screen, fireEvent, within, cleanup } from "@testing-library/react";
+import { render, screen, fireEvent, cleanup } from "@testing-library/react";
 import { describe, test, expect, vi, beforeEach, afterEach } from "vitest";
 
 vi.mock("../data/data", () => ({
@@ -83,12 +83,31 @@ describe("MultipleChoice", () => {
     expect(callArgs(mockPrevChoices)).toEqual([0]);
   });
 
+  // test("applies correct background colors when quiz is over", () => {
+  //   const userChoices = [1, 2];
+
+  //   renderComponent(true, 0, userChoices);
+
+  //   const buttons = screen.getAllByRole("button");
+  //   expect(buttons[0]).toHaveClass("bg-accent-pink");
+  //   expect(buttons[1]).toHaveClass("bg-accent-red");
+  //   expect(buttons[2]).toHaveClass("bg-neutral-800");
+  //   expect(buttons[3]).toHaveClass("bg-neutral-800");
+  // });
+
   test("displays attribution and link", () => {
-    // renderComponent();
     const attributionElement = screen.getByText((content, element) => {
       return element.tagName.toLowerCase() === 'a' && content.includes("Author 1");
     });
     expect(attributionElement).toBeInTheDocument();
     expect(attributionElement).toHaveAttribute("href", "https://example1.com");
+  });
+
+  test("displays further reading link when quiz is over and user choice is incorrect", () => {
+    renderComponent(true, 0, [1]);
+
+    const furtherReadingElement = screen.getByText("Strengthen for next battle");
+    expect(furtherReadingElement).toBeInTheDocument();
+    expect(furtherReadingElement).toHaveAttribute("href", "https://example1.com/further-reading");
   });
 });
