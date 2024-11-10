@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { questions } from "../data/data";
+import { questions as originalQuestions } from "../data/data";
+import { shuffleArray } from "../utils/utils";
 import Code from "./Code";
 import MultipleChoice from "./MultipleChoice";
 import Button from "./Button";
@@ -13,17 +14,23 @@ const QuestionContainer = ({
   setUserChoices,
 }) => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [shuffledQuestions, setShuffledQuestions] = useState(originalQuestions);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    setShuffledQuestions(shuffleArray(originalQuestions));
+  }, []);
+  console.log(shuffledQuestions);
 
   const setButtonText = () => {
     if (userChoices.length >= 10 && !quizOver) {
       return "⚔ Claim My Plunder! ⚔";
     }
-  
+
     if (!quizOver) {
       return "Cast Answer";
     }
-  
+
     if (quizOver) {
       if (currentQuestion !== 9) {
         return "Onward!";
@@ -61,14 +68,14 @@ const QuestionContainer = ({
     <article className="flex flex-col gap-16 py-10">
       <h2 className="text-2xl font-black md:text-3xl lg:text-5xl">{quizOver ? "Answer" : "Question"} {currentQuestion + 1}</h2>
       {currentQuestion !== 10 &&
-        <Code code={questions[currentQuestion].code} />
+        <Code code={shuffledQuestions[currentQuestion].code} />
       }
       {currentQuestion !== 10 &&
         <MultipleChoice
           quizOver={quizOver}
           currentQuestion={currentQuestion}
-          choices={questions[currentQuestion].choices}
-          correctAnswerIndex={questions[currentQuestion].correctAnswerIndex}
+          choices={shuffledQuestions[currentQuestion].choices}
+          correctAnswerIndex={shuffledQuestions[currentQuestion].correctAnswerIndex}
           setCorrectAnswers={setCorrectAnswers}
           userChoices={userChoices}
           setUserChoices={setUserChoices}
