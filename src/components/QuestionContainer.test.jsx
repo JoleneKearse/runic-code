@@ -72,12 +72,12 @@ describe("QuestionContainer", () => {
   });
 
   test("renders the question number", () => {
-    expect(screen.getByText("Question 1")).toBeInTheDocument();
+    expect(screen.getByText("Rune 1")).toBeInTheDocument();
   });
 
   test("renders the answer number when quiz is over", () => {
     renderComponent(true);
-    expect(screen.getByText("Answer 1")).toBeInTheDocument();
+    expect(screen.getByText("Omen 1")).toBeInTheDocument();
   });
 
   // test("renders the code component", () => {
@@ -94,7 +94,7 @@ describe("QuestionContainer", () => {
     const button = screen.getByText("Cast Answer");
     fireEvent.click(button);
     expect(setQuizOver).not.toHaveBeenCalled();
-    expect(screen.getByText("Question 2")).toBeInTheDocument();
+    expect(screen.getByText("Rune 2")).toBeInTheDocument();
   });
 
   // test("handles button click to end quiz and navigate to results", () => {
