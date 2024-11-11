@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { questions as originalQuestions } from "../data/data";
+import axios from "axios";
 import { shuffleArray } from "../utils/utils";
 import Code from "./Code";
 import MultipleChoice from "./MultipleChoice";
@@ -14,11 +14,31 @@ const QuestionContainer = ({
   setUserChoices,
 }) => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [shuffledQuestions, setShuffledQuestions] = useState(originalQuestions);
+  const [shuffledQuestions, setShuffledQuestions] = useState([
+    {
+      code: "",
+      choices: [],
+      correctAnswerIndex: 0,
+      attribution: "",
+      attributionLink: "",
+      furtherReading: "",
+    },
+  ]);
+  const [error, setError] = useState(null); 
   const navigate = useNavigate();
 
   useEffect(() => {
-    setShuffledQuestions(shuffleArray(originalQuestions));
+    const fetchQuestions = async () => {
+      try {
+        const response = await axios.get("http://localhost:5000/api/questions");
+        const questions = response.data;
+        setShuffledQuestions(shuffleArray(questions).slice(0, 10));
+      } catch (error) {
+        console.error("Error fetching questions:", error);
+        setError("Error fetching questions.");
+      }
+    };
+    fetchQuestions();
   }, []);
 
   const setButtonText = () => {
@@ -65,6 +85,7 @@ const QuestionContainer = ({
 
   return (
     <article className="flex flex-col gap-16 py-10">
+      {error && <p className="text-red-500">{error}</p>}
       <h2 className="text-2xl font-black md:text-3xl lg:text-5xl">{quizOver ? "Omen" : "Rune"} {currentQuestion + 1}</h2>
       {currentQuestion !== 10 &&
         <Code code={shuffledQuestions[currentQuestion].code} />
