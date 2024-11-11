@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { questions } from "../data/data";
+// import { questions } from "../data/data";
 
 const MultipleChoice = ({
   choices,
@@ -8,7 +8,10 @@ const MultipleChoice = ({
   userChoices,
   setUserChoices,
   quizOver,
-  currentQuestion
+  currentQuestion,
+  attribution,
+  attributionLink,
+  furtherReading,
 }) => {
   const [selectedChoice, setSelectedChoice] = useState(null);
 
@@ -66,18 +69,18 @@ const MultipleChoice = ({
         <p className="fixed bottom-2 w-full text-neutral-700">
           Kata created by{" "}
           <a
-            href={questions[currentQuestion].attributionLink}
+            href={attributionLink}
             target="_blank" rel="noopener noreferrer"
             className="text-neutral-800"
           >
-            {questions[currentQuestion].attribution}
+            {attribution}
           </a>
         </p>
       )}
       {quizOver && userChoices[currentQuestion] !== correctAnswerIndex && (
         <p className="fixed bottom-2 w-full">
           <a
-            href={questions[currentQuestion].furtherReading}
+            href={furtherReading}
             target="_blank" rel="noopener noreferrer"
             className="text-accent-red motion-safe:animate-ping duration-75"
           >

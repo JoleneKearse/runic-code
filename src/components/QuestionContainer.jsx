@@ -20,7 +20,6 @@ const QuestionContainer = ({
   useEffect(() => {
     setShuffledQuestions(shuffleArray(originalQuestions));
   }, []);
-  console.log(shuffledQuestions);
 
   const setButtonText = () => {
     if (userChoices.length >= 10 && !quizOver) {
@@ -79,6 +78,9 @@ const QuestionContainer = ({
           setCorrectAnswers={setCorrectAnswers}
           userChoices={userChoices}
           setUserChoices={setUserChoices}
+          attribution={shuffledQuestions[currentQuestion].attribution}
+          attributionLink={shuffledQuestions[currentQuestion].attributionLink}
+          furtherReading={shuffledQuestions[currentQuestion].furtherReading}
         />
       }
       <Button
