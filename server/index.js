@@ -21,8 +21,8 @@ const questions = [
 		attributionLink: "https://www.codewars.com/users/PG1",
 		furtherReading:
 			"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array",
-		level: "",
-		kataLink: "",
+		level: 8,
+		kataLink: "https://www.codewars.com/kata/56f699cd9400f5b7d8000b55",
 	},
 	{
 		code: `function thor(health) {
@@ -39,8 +39,8 @@ const questions = [
 		attributionLink: "https://www.codewars.com/users/danleavitt0",
 		furtherReading:
 			"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Greater_than",
-		level: "",
-		kataLink: "",
+		level: 8,
+		kataLink: "https://www.codewars.com/kata/57089707fe2d01529f00024a",
 	},
 	{
 		code: `function vallhalla(n){
@@ -57,8 +57,8 @@ const questions = [
 		attributionLink: "https://www.codewars.com/users/wichu",
 		furtherReading:
 			"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array",
-		level: "",
-		kataLink: "",
+		level: 8,
+		kataLink: "https://www.codewars.com/kata/57a083a57cb1f31db7000028",
 	},
 	{
 		code: `function loki(n, x, y) {
@@ -75,8 +75,8 @@ const questions = [
 		attributionLink: "https://www.codewars.com/users/naaz",
 		furtherReading:
 			"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND",
-		level: "",
-		kataLink: "",
+		level: 8,
+		kataLink: "https://www.codewars.com/kata/5545f109004975ea66000086",
 	},
 	{
 		code: `function mjolnir(bool){
@@ -93,8 +93,8 @@ const questions = [
 		attributionLink: "https://www.codewars.com/users/weavermedia",
 		furtherReading:
 			"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator",
-		level: "",
-		kataLink: "",
+		level: 8,
+		kataLink: "https://www.codewars.com/kata/53369039d7ab3ac506000467",
 	},
 	{
 		code: `const asgard = (arr) => {
@@ -112,8 +112,8 @@ const questions = [
 		attributionLink: "https://www.codewars.com/users/user7657844",
 		furtherReading:
 			"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/abs",
-		level: "",
-		kataLink: "",
+		level: 8,
+		kataLink: "https://www.codewars.com/kata/5899dc03bc95b1bf1b0000ad",
 	},
 	{
 		code: `function fenrir(a, b, c) {
@@ -137,8 +137,8 @@ const questions = [
 		attributionLink: "https://www.codewars.com/users/MrZizoScream",
 		furtherReading:
 			"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/max",
-		level: "",
-		kataLink: "",
+		level: 8,
+		kataLink: "https://www.codewars.com/kata/5ae62fcf252e66d44d00008e",
 	},
 	{
 		code: `function bifrost(normPrice, discount, hol) {
@@ -155,8 +155,8 @@ const questions = [
 		attributionLink: "https://www.codewars.com/users/PG1",
 		furtherReading:
 			"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/floor",
-		level: "",
-		kataLink: "",
+		level: 8,
+		kataLink: "https://www.codewars.com/kata/57e92e91b63b6cbac20001e5",
 	},
 	{
 		code: `function baldur(arr, item){
@@ -173,8 +173,8 @@ const questions = [
 		attributionLink: "https://www.codewars.com/users/bellmyer",
 		furtherReading:
 			"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some",
-		level: "",
-		kataLink: "",
+		level: 8,
+		kataLink: "https://www.codewars.com/kata/545991b4cbae2a5fda000158",
 	},
 	{
 		code: `function midgard(str) {
@@ -191,19 +191,18 @@ const questions = [
 		attributionLink: "https://www.codewars.com/users/donaldsebleung",
 		furtherReading:
 			"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every",
-		level: "",
-		kataLink: "",
+		level: 8,
+		kataLink: "https://www.codewars.com/kata/56cd44e1aa4ac7879200010b",
 	},
-	// TODO: Generate new function names and choices here.
 	{
-		code: `function take(arr, n) {
+		code: `function heimdall(arr, n) {
   return arr.slice(0, n);
 }`,
 		choices: [
-			"Checks if all characters in a string are uppercase.",
-			"Converts all characters in a string to uppercase.",
-			"Returns the number of uppercase letters in a string.",
-			"Checks if the first character in the string is uppercase.",
+			"Returns the first n elements of an array.",
+			"Removes the first n elements from an array.",
+			"Returns the last n elements of an array.",
+			"Sorts the array and returns the first n smallest values.",
 		],
 		correctAnswerIndex: 0,
 		attribution: "bellmyer",
@@ -213,18 +212,17 @@ const questions = [
 		level: 8,
 		kataLink: "https://www.codewars.com/kata/545afd0761aa4c3055001386",
 	},
-
 	{
-		code: `function smallEnough(a, limit){
+		code: `function freya(a, limit){
   return a.filter(num => num <= limit).length === a.length;
 }`,
 		choices: [
-			"Checks if all characters in a string are uppercase.",
-			"Converts all characters in a string to uppercase.",
-			"Returns the number of uppercase letters in a string.",
-			"Checks if the first character in the string is uppercase.",
+			"Returns the sum of all elements in the array less than the limit.",
+			"Checks if all elements in the array are less than or equal to the limit.",
+			"Counts how many elements in the array are less than or equal to the limit.",
+			"Checks if the first element of the array is less than or equal to the limit.",
 		],
-		correctAnswerIndex: 0,
+		correctAnswerIndex: 1,
 		attribution: "PG1",
 		attributionLink: "https://www.codewars.com/users/donaldsebleung",
 		furtherReading:
@@ -233,79 +231,79 @@ const questions = [
 		kataLink: "https://www.codewars.com/kata/57cc981a58da9e302a000214",
 	},
 	{
-		code: `function goals (laLigaGoals, copaDelReyGoals, championsLeagueGoals) {
+		code: `function tyr(yggdrasilGoals, vanhallaReyGoals, ragnorokLeagueGoals) {
   return [...arguments].reduce((acc, sum) => acc + sum, 0);
 }`,
 		choices: [
-			"Checks if all characters in a string are uppercase.",
-			"Converts all characters in a string to uppercase.",
-			"Returns the number of uppercase letters in a string.",
-			"Checks if the first character in the string is uppercase.",
+			"Returns the maximum number of goals from the arguments.",
+			"Returns an array of goals in descending order.",
+			"Returns the total number of goals across all leagues.",
+			"Returns the average number of goals across leagues.",
 		],
-		correctAnswerIndex: 0,
+		correctAnswerIndex: 2,
 		attribution: "danleavitt0",
 		attributionLink: "https://www.codewars.com/users/danleavitt0",
 		furtherReading:
-			"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every",
+			"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce",
 		level: 8,
 		kataLink: "https://www.codewars.com/kata/55f73be6e12baaa5900000d4",
 	},
 	{
-		code: `function rowSumOddNumbers(n) {
+		code: `function ragnarok(n) {
 	return Math.pow(n, 3);
 }`,
 		choices: [
-			"Checks if all characters in a string are uppercase.",
-			"Converts all characters in a string to uppercase.",
-			"Returns the number of uppercase letters in a string.",
-			"Checks if the first character in the string is uppercase.",
+			"Returns the square of n.",
+			"Returns n raised to the power of 4.",
+			"Returns the square root of n.",
+			"Returns the cube of n.",
 		],
-		correctAnswerIndex: 0,
+		correctAnswerIndex: 3,
 		attribution: "hhelwich",
 		attributionLink: "https://www.codewars.com/users/hhelwich",
 		furtherReading:
-			"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every",
+			"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/pow",
 		level: 7,
 		kataLink: "https://www.codewars.com/kata/55fd2d567d94ac3bc9000064",
 	},
 	{
-		code: `function remove (string) {
+		code: `function longship(string) {
   return string.replace(/[!]$/, "");
 }`,
 		choices: [
-			"Checks if all characters in a string are uppercase.",
-			"Converts all characters in a string to uppercase.",
-			"Returns the number of uppercase letters in a string.",
-			"Checks if the first character in the string is uppercase.",
+			"Removes the exclamation mark from the end of a string.",
+			"Removes all exclamation marks from the string.",
+			"Adds an exclamation mark to the end of a string.",
+			"Replaces the first exclamation mark in the string.",
 		],
 		correctAnswerIndex: 0,
 		attribution: "myjinxin2015",
 		attributionLink: "https://www.codewars.com/users/myjinxin2015",
 		furtherReading:
-			"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace",
+			"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp",
 		level: 8,
 		kataLink: "https://www.codewars.com/kata/57fae964d80daa229d000126",
 	},
 	{
-		code: `function unusualFive() {
+		code: `function jarl() {
   return ["a", "b", "c", "d", "e"].length;
 }`,
 		choices: [
-			"Checks if all characters in a string are uppercase.",
-			"Converts all characters in a string to uppercase.",
-			"Returns the number of uppercase letters in a string.",
-			"Checks if the first character in the string is uppercase.",
+			"Returns the sum of the ASCII values of the characters.",
+			"Returns the total number of vowels in the array.",
+			"Returns the length of the array, which is 5.",
+			"Returns the first element of the array.",
 		],
-		correctAnswerIndex: 0,
+		correctAnswerIndex: 2,
 		attribution: "KH!",
 		attributionLink: "https://www.codewars.com/users/KH!",
 		furtherReading:
-			"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every",
+			"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/length",
 		level: 8,
 		kataLink: "https://www.codewars.com/kata/59441520102eaa25260000bf",
 	},
 	{
-		code: `function getGrade (s1, s2, s3) {
+		code: `function fyrd(s1, s2, s3) {
   const average = [...arguments].reduce((acc, curr) => acc + curr, 0) / [...arguments].length;
   if (average >= 90) return "A";
   if (average >= 80) return "B";
@@ -314,88 +312,88 @@ const questions = [
   return "F";
 }`,
 		choices: [
-			"Checks if all characters in a string are uppercase.",
-			"Converts all characters in a string to uppercase.",
-			"Returns the number of uppercase letters in a string.",
-			"Checks if the first character in the string is uppercase.",
+			"Returns the maximum of three scores.",
+			"Calculates the sum of three scores and returns a letter grade.",
+			"Determines the median of three scores and returns a letter grade.",
+			"Calculates the average of three scores and returns the corresponding letter grade.",
 		],
-		correctAnswerIndex: 0,
+		correctAnswerIndex: 3,
 		attribution: "danleavitt0",
 		attributionLink: "https://www.codewars.com/users/danleavitt0",
 		furtherReading:
-			"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every",
+			"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax",
 		level: 8,
 		kataLink: "https://www.codewars.com/kata/55cbd4ba903825f7970000f5",
 	},
 	{
-		code: `function addFive(num) {
-  return num + 5;
+		code: `function thing(num) {
+  return num + 9;
 }`,
 		choices: [
-			"Checks if all characters in a string are uppercase.",
-			"Converts all characters in a string to uppercase.",
-			"Returns the number of uppercase letters in a string.",
-			"Checks if the first character in the string is uppercase.",
+			"Concatenates 9 to the given number.",
+			"Subtracts 9 from the given number.",
+			"Adds 9 to the given number.",
+			"Returns the number as a string prefixed with 9.",
 		],
-		correctAnswerIndex: 0,
+		correctAnswerIndex: 2,
 		attribution: "danleavitt0",
 		attributionLink: "https://www.codewars.com/users/danleavitt0",
 		furtherReading:
-			"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every",
+			"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Addition",
 		level: 8,
 		kataLink: "https://www.codewars.com/kata/56200d610758762fb0000002",
 	},
 	{
-		code: `function binToDec(bin) {
+		code: `function berserker(bin) {
   return parseInt(bin, 2);
 }`,
 		choices: [
-			"Checks if all characters in a string are uppercase.",
-			"Converts all characters in a string to uppercase.",
-			"Returns the number of uppercase letters in a string.",
-			"Checks if the first character in the string is uppercase.",
+			"Adds two binary numbers and returns their sum.",
+			"Converts a binary string to a decimal number.",
+			"Converts a decimal number to a binary string.",
+			"Returns the number of 1's in a binary string.",
 		],
-		correctAnswerIndex: 0,
+		correctAnswerIndex: 1,
 		attribution: "wichu",
 		attributionLink: "https://www.codewars.com/users/wichu",
 		furtherReading:
-			"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every",
+			"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt",
 		level: 8,
 		kataLink: "https://www.codewars.com/kata/57a5c31ce298a7e6b7000334",
 	},
 	{
-		code: `function toBinary(n){
+		code: `function shieldmaiden(n){
   return +n.toString(2);
 }`,
 		choices: [
-			"Checks if all characters in a string are uppercase.",
-			"Converts all characters in a string to uppercase.",
-			"Returns the number of uppercase letters in a string.",
-			"Checks if the first character in the string is uppercase.",
+			"Converts a number to its binary representation.",
+			"Converts a number to a hexadecimal string.",
+			"Returns the square root of the number.",
+			"Converts a binary string back to a decimal number.",
 		],
 		correctAnswerIndex: 0,
 		attribution: "JapaX",
 		attributionLink: "https://www.codewars.com/users/wichu",
 		furtherReading:
-			"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every",
+			"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Unary_plus",
 		level: 8,
 		kataLink: "https://www.codewars.com/kata/59fca81a5712f9fa4700159a",
 	},
 	{
-		code: `function isPalindrome(x) {
+		code: `function norm(x) {
   return x.toLowerCase() === x.split("").reverse().join("").toLowerCase();
 }`,
 		choices: [
-			"Checks if all characters in a string are uppercase.",
-			"Converts all characters in a string to uppercase.",
-			"Returns the number of uppercase letters in a string.",
-			"Checks if the first character in the string is uppercase.",
+			"Counts the number of characters in the string.",
+			"Reverses the given string.",
+			"Converts the string to lowercase and removes whitespace.",
+			"Checks if a string is a palindrome, ignoring case.",
 		],
-		correctAnswerIndex: 0,
+		correctAnswerIndex: 3,
 		attribution: "wichu",
 		attributionLink: "https://www.codewars.com/users/wichu",
 		furtherReading:
-			"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every",
+			"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join",
 		level: 8,
 		kataLink: "https://www.codewars.com/kata/57a1fd2ce298a731b20006a4",
 	},
