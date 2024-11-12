@@ -51,7 +51,28 @@ const MultipleChoice = ({
 
   return (
     <>
-      <ol className="flex flex-col gap-6 text-left">
+      {!quizOver && (
+        <p className="-mt-16 -mb-8 w-full text-neutral-700">
+          Kata created by{" "}
+          <a
+            href={attributionLink}
+            target="_blank" rel="noopener noreferrer"
+            className="text-neutral-800"
+          >
+            {attribution}
+          </a>
+        </p>
+      )}
+      {quizOver && userChoices[currentQuestion] !== correctAnswerIndex && (
+        <a
+          href={furtherReading}
+          target="_blank" rel="noopener noreferrer"
+          className="-mt-[75px] ml-[170px] md:-mt-[80px] md:ml-[420px] lg:ml-[400px] text-neutral-100 py-2 px-4 rounded-full bg-accent-red"
+        >
+          Strengthen for next battle
+        </a>
+      )}
+      <ol className="flex flex-col gap-6 text-left relative">
         {choices.map((choice, index) => (
           <li key={index}>
             <button
@@ -65,29 +86,8 @@ const MultipleChoice = ({
           </li>
         ))}
       </ol>
-      {!quizOver && (
-        <p className="fixed bottom-2 w-full text-neutral-700">
-          Kata created by{" "}
-          <a
-            href={attributionLink}
-            target="_blank" rel="noopener noreferrer"
-            className="text-neutral-800"
-          >
-            {attribution}
-          </a>
-        </p>
-      )}
-      {quizOver && userChoices[currentQuestion] !== correctAnswerIndex && (
-        <p className="fixed bottom-2 w-full">
-          <a
-            href={furtherReading}
-            target="_blank" rel="noopener noreferrer"
-            className="text-accent-red motion-safe:animate-ping duration-75"
-          >
-            Strengthen for next battle
-          </a>
-        </p>
-      )}
+
+
     </>
   )
 }
