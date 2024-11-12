@@ -48,8 +48,15 @@ const customStyle = {
   showLineNumbers wrapLines
 >
 ```
-
 ### 3
+
+I added links to an appropriate *MDN* doc, if the user answered incorrectly.  These only show up on the `ResultsPage` if they picked the wrong multiple choice answer.  
+
+### 4
+
+I set up my own server to make *API* calls from.
+
+### 5
 And, lastly, I ran pell-mell with the Viking theme.  I even tried to craft all my commit messages in Viking-inspired language!  I named all the functions and buttons accordingly. *We all get our fun in in different ways!* 🤷‍♀️
 
 ## Challenges Solved
