@@ -13,3 +13,4 @@ services:
     startCommand: cd server && node index.js
     envVars:
       - key: PORT
+        value: ""
