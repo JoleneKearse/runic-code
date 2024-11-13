@@ -24,13 +24,13 @@ const QuestionContainer = ({
       furtherReading: "",
     },
   ]);
-  const [error, setError] = useState(null); 
+  const [error, setError] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
     const fetchQuestions = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/questions");
+        const response = await axios.get("https://runic-code-server.onrender.com/api/questions");
         const questions = response.data;
         setShuffledQuestions(shuffleArray(questions).slice(0, 10));
       } catch (error) {
