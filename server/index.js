@@ -403,6 +403,6 @@ app.get("/api/questions", (req, res) => {
 	res.json(questions);
 });
 
-app.listen(port, () => {
+app.listen(PORT, () => {
 	console.log(`Server listening at http://localhost:${port}/api/questions`);
 });
