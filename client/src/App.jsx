@@ -10,7 +10,7 @@ function App() {
   const [userChoices, setUserChoices] = useState([]);
 
   return (
-    <main className="min-h-screen md:w-5/6 lg:w-3/5 xl:ms-52 mx-auto flex flex-col justify-center items-center">
+    <main className="min-h-screen mx-auto md:w-5/6 lg:w-3/5 md:mx-auto xl:mx-auto mx-4 flex flex-col justify-center items-center">
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/quiz" element={
