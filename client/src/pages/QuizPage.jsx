@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import QuestionContainer from "../components/QuestionContainer";
 import QuestionContainerSkelton from "../components/QuestionContainerSkelton";
 
@@ -8,12 +7,11 @@ const QuizPage = ({
   setCorrectAnswers,
   userChoices,
   setUserChoices,
+  isLoading,
+  setIsLoading,
+  shuffledQuestions,
+  error,
 }) => {
-  const [isLoading, setIsLoading] = useState(false);
-
-  useEffect(() => {
-    console.log("fetching questions...");
-  },[isLoading]);
 
   return (
     <article className="w-full h-full">
@@ -28,6 +26,8 @@ const QuizPage = ({
           setUserChoices={setUserChoices}
           isLoading={isLoading}
           setIsLoading={setIsLoading}
+          shuffledQuestions={shuffledQuestions}
+          error={error}
         />
       )}
     </article>

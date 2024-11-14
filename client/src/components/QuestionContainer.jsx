@@ -1,7 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
-import { shuffleArray } from "../utils/utils";
 import Code from "./Code";
 import MultipleChoice from "./MultipleChoice";
 import Button from "./Button";
@@ -14,38 +12,11 @@ const QuestionContainer = ({
   setUserChoices,
   isLoading,
   setIsLoading,
+  shuffledQuestions,
+  error,
 }) => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [shuffledQuestions, setShuffledQuestions] = useState([
-    {
-      code: "",
-      choices: [],
-      correctAnswerIndex: 0,
-      attribution: "",
-      attributionLink: "",
-      furtherReading: "",
-    },
-  ]);
-  const [error, setError] = useState(null);
   const navigate = useNavigate();
-
-  useEffect(() => {
-    const fetchQuestions = async () => {
-      setIsLoading(true);
-      try {
-        console.log("fetching questions...");
-        const response = await axios.get("https://runic-code-server.onrender.com/api/questions");
-        const questions = response.data;
-        setShuffledQuestions(shuffleArray(questions).slice(0, 10));
-      } catch (error) {
-        console.error("Error fetching questions:", error);
-        setError("Error fetching questions.");
-      } finally {
-        setIsLoading(false);
-      }
-    };
-    fetchQuestions();
-  }, [setIsLoading]);
 
   const setButtonText = () => {
     if (userChoices.length >= 10 && !quizOver) {

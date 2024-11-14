@@ -7,7 +7,9 @@ const ResultsPage = ({
   userChoices,
   setUserChoices,
   quizOver,
-  setQuizOver
+  setQuizOver,
+  shuffledQuestions,
+  error,
 }) => {
   const congratulationsMessages = [
     "You know way more JavaScript than us Vikings ever dreamed of!",
@@ -39,6 +41,8 @@ const ResultsPage = ({
         setCorrectAnswers={setCorrectAnswers}
         userChoices={userChoices}
         setUserChoices={setUserChoices}
+        shuffledQuestions={shuffledQuestions}
+        error={error}
       />
     </article>
   )
