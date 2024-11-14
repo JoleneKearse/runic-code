@@ -291,7 +291,7 @@ const questions = [
 		choices: [
 			"Returns the sum of the ASCII values of the characters.",
 			"Returns the total number of vowels in the array.",
-			"Returns the length of the array, which is 5.",
+			"Returns the length of the array.",
 			"Returns the first element of the array.",
 		],
 		correctAnswerIndex: 2,
