@@ -10,8 +10,6 @@ const QuestionContainer = ({
   setCorrectAnswers,
   userChoices,
   setUserChoices,
-  isLoading,
-  setIsLoading,
   shuffledQuestions,
   error,
 }) => {
@@ -19,12 +17,13 @@ const QuestionContainer = ({
   const navigate = useNavigate();
 
   const setButtonText = () => {
-    if (userChoices.length >= 10 && !quizOver) {
-      return "⚔ Claim My Plunder! ⚔";
-    }
 
     if (!quizOver) {
-      return "Cast Answer";
+      if (currentQuestion === 9) {
+        return "⚔ Claim My Plunder! ⚔";
+      } else {
+        return "Cast Answer";
+      }
     }
 
     if (quizOver) {
@@ -37,6 +36,13 @@ const QuestionContainer = ({
   };
 
   const handleClick = () => {
+    console.log("userChoices:", userChoices);
+    if (userChoices[currentQuestion] === null) {
+      alert("The Jarl demands an answer!");
+      console.log("The Jarl demands an answer!");
+      return;
+    };
+
     if (quizOver) {
       if (currentQuestion !== 9) {
         setCurrentQuestion(currentQuestion + 1);

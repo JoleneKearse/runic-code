@@ -9,7 +9,7 @@ import ResultsPage from "./pages/ResultsPage";
 function App() {
   const [quizOver, setQuizOver] = useState(false);
   const [correctAnswers, setCorrectAnswers] = useState(0);
-  const [userChoices, setUserChoices] = useState([]);
+  const [userChoices, setUserChoices] = useState(Array.from({ length: 10 }).fill(null));
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const [shuffledQuestions, setShuffledQuestions] = useState([
