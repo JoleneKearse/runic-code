@@ -85,8 +85,6 @@ const MultipleChoice = ({
           </li>
         ))}
       </ol>
-
-
     </>
   )
 }

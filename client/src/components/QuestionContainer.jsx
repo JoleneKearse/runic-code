@@ -12,6 +12,8 @@ const QuestionContainer = ({
   setCorrectAnswers,
   userChoices,
   setUserChoices,
+  isLoading,
+  setIsLoading,
 }) => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [shuffledQuestions, setShuffledQuestions] = useState([
@@ -29,17 +31,21 @@ const QuestionContainer = ({
 
   useEffect(() => {
     const fetchQuestions = async () => {
+      setIsLoading(true);
       try {
+        console.log("fetching questions...");
         const response = await axios.get("https://runic-code-server.onrender.com/api/questions");
         const questions = response.data;
         setShuffledQuestions(shuffleArray(questions).slice(0, 10));
       } catch (error) {
         console.error("Error fetching questions:", error);
         setError("Error fetching questions.");
+      } finally {
+        setIsLoading(false);
       }
     };
     fetchQuestions();
-  }, []);
+  }, [setIsLoading]);
 
   const setButtonText = () => {
     if (userChoices.length >= 10 && !quizOver) {
