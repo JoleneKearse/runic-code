@@ -1,5 +1,5 @@
 import QuestionContainer from "../components/QuestionContainer";
-import QuestionContainerSkelton from "../components/QuestionContainerSkelton";
+import QuestionContainerSkeleton from "../components/QuestionContainerSkeleton";
 
 const QuizPage = ({
   quizOver,
@@ -12,11 +12,10 @@ const QuizPage = ({
   shuffledQuestions,
   error,
 }) => {
-
   return (
     <article className="w-full h-full">
       {isLoading ? (
-        <QuestionContainerSkelton />
+        <QuestionContainerSkeleton />
       ) : (
         <QuestionContainer
           quizOver={quizOver}

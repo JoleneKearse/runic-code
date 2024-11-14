@@ -25,7 +25,6 @@ function App() {
 
   useEffect(() => {
     const fetchQuestions = async () => {
-      setIsLoading(true);
       try {
         const response = await axios.get(
           process.env.NODE_ENV === "production"
