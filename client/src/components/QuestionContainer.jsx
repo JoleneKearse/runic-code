@@ -17,7 +17,6 @@ const QuestionContainer = ({
   const navigate = useNavigate();
 
   const setButtonText = () => {
-
     if (!quizOver) {
       if (currentQuestion === 9) {
         return "⚔ Claim My Plunder! ⚔";
@@ -39,7 +38,6 @@ const QuestionContainer = ({
     console.log("userChoices:", userChoices);
     if (userChoices[currentQuestion] === null) {
       alert("The Jarl demands an answer!");
-      console.log("The Jarl demands an answer!");
       return;
     };
 

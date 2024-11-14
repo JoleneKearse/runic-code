@@ -1,4 +1,4 @@
-const QuestionContainerSkelton = () => {
+const QuestionContainerSkeleton = () => {
   return (
     <article className="flex flex-col gap-16 py-10 animate-pulse">
       <div className="h-4 bg-neutral-800 rounded-lg w-1/4 mt-2"></div>
@@ -10,4 +10,4 @@ const QuestionContainerSkelton = () => {
   )
 }
 
-export default QuestionContainerSkelton
+export default QuestionContainerSkeleton

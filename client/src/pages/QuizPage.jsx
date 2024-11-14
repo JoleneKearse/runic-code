@@ -13,7 +13,7 @@ const QuizPage = ({
   error,
 }) => {
   return (
-    <article className="w-full h-full">
+    <article className="h-screen min-w-[319px] mx-auto px-2">
       {isLoading ? (
         <QuestionContainerSkeleton />
       ) : (
