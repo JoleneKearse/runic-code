@@ -37,7 +37,7 @@ const ResultsPage = ({
         <article className="h-screen min-w-[319px] w-9/12 w-[500px] max-w-[720px] mx-auto px-2">
           <div className="mt-6 py-2 px-4 bg-accent-pink rounded-lg">
             <p className="text-neutral-900 text-3xl font-black md:text-4xl lg:text-5xl">
-              You slayed {correctAnswers} answer{correctAnswers !== 1 ? "s" : ""}!
+              You slayed {correctAnswers + 1} answer{correctAnswers !== 1 ? "s" : ""}!
             </p>
             <p className="mt-4 text-neutral-100 text-xl font-black text-balance md:text-2xl lg:text-3xl">
               {congratulationsMessages[correctAnswers]}
