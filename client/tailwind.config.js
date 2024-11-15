@@ -24,6 +24,7 @@ export default {
 					red: "#9a2418",
 					pink: "#9a6d80",
 				},
+				background: "#e8c196",
 			},
 			backgroundImage: {
 				fyord: "url('/background.jpg')",
