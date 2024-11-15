@@ -6,6 +6,7 @@ const Code = ({ code }) => {
   const customStyle = {
     borderRadius: "0.5rem",
     backgroundColor: "#483C38",
+    maxWidth: "98%",
   };
   
   return (
@@ -13,7 +14,8 @@ const Code = ({ code }) => {
       language="javascript"
       style={solarizedlight}
       customStyle={customStyle}
-      showLineNumbers wrapLines
+      showLineNumbers 
+      wrapLines
     >
       {code}
     </SyntaxHighlighter>
