@@ -67,7 +67,7 @@ const QuestionContainer = ({
   return (
     <article className="flex flex-col gap-16 py-10">
       {error && <p className="text-red-500">{error}</p>}
-      <h2 className="text-2xl font-black md:text-3xl lg:text-5xl">{quizOver ? "Omen" : "Rune"} {currentQuestion + 1}</h2>
+      <h2 className="text-2xl font-black -mb-10 md:text-3xl lg:text-5xl">{quizOver ? "Omen" : "Rune"} {currentQuestion + 1}</h2>
       {currentQuestion !== 10 &&
         <Code code={shuffledQuestions[currentQuestion].code} />
       }
