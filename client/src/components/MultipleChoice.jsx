@@ -66,7 +66,7 @@ const MultipleChoice = ({
         <a
           href={furtherReading}
           target="_blank" rel="noopener noreferrer"
-          className="-mt-[75px] ml-[170px] md:-mt-[80px] md:ml-[420px] lg:ml-[400px] text-neutral-100 py-2 px-4 rounded-full bg-accent-navy"
+          className="-mt-[75px] ml-[70px] md:-mt-[80px] md:ml-[250px] lg:ml-[400px] text-neutral-100 py-2 px-4 rounded-full bg-accent-navy"
         >
           Strengthen for next battle
         </a>
