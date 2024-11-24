@@ -2,6 +2,9 @@
 
 ## Project Preview
 
+![App flow](client/src/assets/runic-code.png)
+[Visit the live site](https://runic-code.onrender.com/)
+
 **Runic Code** is a **Viking-themed JavaScript DSA quiz game**, because I *correctly* saw the high market demand! ⚔️
 
 Reading code and identifying it's purpose is a valuable skill, but isn't often taught.  Until they starting working with teams and doing code reviews, self-taught devs often don't get the chance to bolster this skill.
