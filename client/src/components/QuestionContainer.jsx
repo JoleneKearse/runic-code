@@ -35,7 +35,6 @@ const QuestionContainer = ({
   };
 
   const handleClick = () => {
-    console.log("userChoices:", userChoices);
     if (userChoices[currentQuestion] === null) {
       alert("The Jarl demands an answer!");
       return;
