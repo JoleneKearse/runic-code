@@ -117,8 +117,17 @@ cd yourproject
 ```bash
 pnpm install
 ```
-4. Start the development server:
+
+4. Start the client development server:
 ```bash
+cd client
 pnpm run dev
 ```
 The application should now be running at `http://localhost:5173`.
+
+5. Start the server:
+```bash
+cd server
+pnpm start
+```
+The server will be running at `http://localhost:5000`.
