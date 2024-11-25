@@ -91,8 +91,6 @@ From here, I could easily reuse `selectedChoice` to change the background color 
 selectedChoice === index ? "bg-neutral-900" : "bg-neutral-800";
 ```
 
-*But there was a problem...*
-
 
 
 ## Getting Started

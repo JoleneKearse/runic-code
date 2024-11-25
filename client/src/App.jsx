@@ -34,7 +34,6 @@ function App() {
         const questions = response.data;
         setShuffledQuestions(shuffleArray(questions).slice(0, 10));
       } catch (error) {
-        console.error("Error fetching questions:", error);
         setError("Error fetching questions: " + error.message);
       } finally {
         setIsLoading(false);
