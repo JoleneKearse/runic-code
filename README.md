@@ -113,7 +113,7 @@ git clone git@github.com:JoleneKearse/runic-code.git
 cd yourproject
   ```
 
-3. Run the following command to install project dependencies:
+3. Run the following command to install project dependencies in both `client` & `server` directories:
 ```bash
 pnpm install
 ```
