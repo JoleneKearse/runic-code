@@ -81,7 +81,6 @@ const MultipleChoice = ({
             >
               {choice}
             </button>
-
           </li>
         ))}
       </ol>
