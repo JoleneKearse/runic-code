@@ -8,7 +8,10 @@ import ResultsPage from "./pages/ResultsPage";
 
 function App() {
   const [quizOver, setQuizOver] = useState(false);
-  const [correctAnswers, setCorrectAnswers] = useState(0);
+  const [correctAnswers, setCorrectAnswers] = useState(() => {
+    const storedCorrectAnswers = localStorage.getItem("correctAnswers");
+    return storedCorrectAnswers ? JSON.parse(storedCorrectAnswers) : 0;
+  });
   const [userChoices, setUserChoices] = useState(Array.from({ length: 10 }).fill(null));
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -42,35 +45,39 @@ function App() {
     fetchQuestions();
   }, []);
 
-return (
-  <main className="min-h-screen mx-auto md:w-5/6 lg:w-4/5 md:mx-auto xl:mx-auto mx-4 flex flex-col justify-center items-center">
-    <Routes>
-      <Route path="/" element={<HomePage />} />
-      <Route path="/quiz" element={
-        <QuizPage
-          quizOver={quizOver}
-          setQuizOver={setQuizOver}
-          setCorrectAnswers={setCorrectAnswers}
-          userChoices={userChoices}
-          setUserChoices={setUserChoices}
-          isLoading={isLoading}
-          shuffledQuestions={shuffledQuestions}
-          error={error}
-        />} />
-      <Route path="/results" element={
-        <ResultsPage
-          quizOver={quizOver}
-          setQuizOver={setQuizOver}
-          correctAnswers={correctAnswers}
-          setCorrectAnswers={setCorrectAnswers}
-          userChoices={userChoices}
-          setUserChoices={setUserChoices}
-          shuffledQuestions={shuffledQuestions}
-          error={error}
-        />} />
-    </Routes>
-  </main>
-)
+  useEffect(() => {
+    localStorage.setItem("correctAnswers", JSON.stringify(correctAnswers));
+  }, [correctAnswers]);
+
+  return (
+    <main className="min-h-screen mx-auto md:w-5/6 lg:w-4/5 md:mx-auto xl:mx-auto mx-4 flex flex-col justify-center items-center">
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/quiz" element={
+          <QuizPage
+            quizOver={quizOver}
+            setQuizOver={setQuizOver}
+            setCorrectAnswers={setCorrectAnswers}
+            userChoices={userChoices}
+            setUserChoices={setUserChoices}
+            isLoading={isLoading}
+            shuffledQuestions={shuffledQuestions}
+            error={error}
+          />} />
+        <Route path="/results" element={
+          <ResultsPage
+            quizOver={quizOver}
+            setQuizOver={setQuizOver}
+            correctAnswers={correctAnswers}
+            setCorrectAnswers={setCorrectAnswers}
+            userChoices={userChoices}
+            setUserChoices={setUserChoices}
+            shuffledQuestions={shuffledQuestions}
+            error={error}
+          />} />
+      </Routes>
+    </main>
+  )
 }
 
 export default App;
