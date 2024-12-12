@@ -30,7 +30,7 @@ const ResultsPage = ({
         <div className="font-black text-xl lg:text-2xl flex flex-col gap-6 text-center items-center">
           <p>Scoundrel! You shirk at divining the runes?</p>
           <p>You must complete them before entering Vallhalla!</p>
-          <img src="/viking-ship.png" alt="viking ship" className="w-32" />
+          <img src="/viking-ship.webp" alt="viking ship" className="w-32" />
           <a href="/quiz" className="text-accent-red text-4xl">Go to challenge</a>
         </div>
       ) : (

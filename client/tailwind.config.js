@@ -27,7 +27,7 @@ export default {
 				background: "#e8c196",
 			},
 			backgroundImage: {
-				fyord: "url('/background.jpg')",
+				fyord: "url('/background.webp')",
 			},
 		},
 	},
