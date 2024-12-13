@@ -6,21 +6,18 @@ import { analyzer } from "vite-bundle-analyzer";
 export default defineConfig({
 	plugins: [
 		react(),
-		analyzer({
-			analyzerMode: "server",
-			analyzerPort: 8888,
-			openAnalyzer: true,
-		}),
-	],
+		process.env.ANALYZE === "true" &&
+			analyzer({
+				analyzerMode: "server",
+				analyzerPort: 8888,
+				openAnalyzer: true,
+			}),
+	].filter(Boolean), 
 	build: {
 		rollupOptions: {
 			output: {
 				manualChunks: {
-					vendor: [
-						"react",
-						"react-dom",
-						"react-router-dom",
-					],
+					vendor: ["react", "react-dom", "react-router-dom"],
 				},
 			},
 		},
