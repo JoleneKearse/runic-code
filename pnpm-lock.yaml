@@ -6,4 +6,17 @@ settings:
 
 importers:
 
-  .: {}
+  .:
+    devDependencies:
+      vite-plugin-bundle-analyzer:
+        specifier: ^0.0.1
+        version: 0.0.1
+
+packages:
+
+  vite-plugin-bundle-analyzer@0.0.1:
+    resolution: {integrity: sha512-lRIyeQDinxv00b6Fk1ChGq9N13/LzQNO+iYqJen4Rk2B8KH+0MJwjnwSwLkRg44rrCGmcmZQMNdfhqHOMCuyPw==}
+
+snapshots:
+
+  vite-plugin-bundle-analyzer@0.0.1: {}
