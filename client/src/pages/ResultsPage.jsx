@@ -6,6 +6,7 @@ const ResultsPage = ({
 }) => {
 
   const congratulationsMessages = [
+    "You're just getting started! Keep up the good work!",
     "You know way more JavaScript than us Vikings ever dreamed of!",
     "Your skills are as sharp as a Viking’s axe — keep honing them!",
     "You’ve conquered this quiz like a true warrior of code!",
