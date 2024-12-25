@@ -16,7 +16,10 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.27.0",
-    "react-syntax-highlighter": "^15.6.1"
+    "react-syntax-highlighter": "^15.6.1",
+    "terser": "^5.37.0",
+    "vite-plugin-compression": "^0.5.1",
+    "vite-plugin-purgecss": "^0.2.12"
   },
   "devDependencies": {
     "@eslint/js": "^9.13.0",
