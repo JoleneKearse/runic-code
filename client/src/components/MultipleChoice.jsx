@@ -1,46 +1,39 @@
 import React, { useState, useEffect } from "react";
 
 const MultipleChoice = ({
-  choices,
-  setCorrectAnswers,
-  correctAnswerIndex,
-  userChoices,
-  setUserChoices,
-  quizOver,
-  currentQuestion,
-  attribution,
-  attributionLink,
-  furtherReading,
+  state,
+  dispatch,
 }) => {
   const [selectedChoice, setSelectedChoice] = useState(null);
 
   useEffect(() => {
     setSelectedChoice(null);
-  }, [currentQuestion]);
+  }, [state.currentQuestion]);
 
   const handleQuestionClick = (index) => {
     setSelectedChoice(index);
 
-    if (index === correctAnswerIndex) {
-      setCorrectAnswers((prev) => prev + 1);
+    if (!state.quizOver && index === state.shuffledQuestions[state.currentQuestion].correctAnswerIndex) {
+      dispatch({ type: "SET_CORRECT_ANSWERS", payload: state.correctAnswers + 1 });
     };
 
-    setUserChoices((prev) => {
-      const newChoice = [...prev];
-      newChoice[currentQuestion] = index;
-      return newChoice;
+    dispatch({
+      type: "SET_USER_CHOICES",
+      payload: state.userChoices.map((choice, idx) =>
+        idx === state.currentQuestion ? index : choice
+      ),
     });
   };
 
   const determineButtonBgColorBasedOnState = (index) => {
-    if (!quizOver) {
+    if (!state.quizOver) {
       return selectedChoice === index ? "bg-neutral-900" : "bg-neutral-800";
     }
 
-    if (quizOver) {
-      if (index === correctAnswerIndex) {
+    if (state.quizOver) {
+      if (index === state.shuffledQuestions[state.currentQuestion].correctAnswerIndex) {
         return "bg-accent-pink";
-      } else if (userChoices[currentQuestion] === index && index !== correctAnswerIndex) {
+      } else if (state.userChoices[state.currentQuestion] === index && index !== state.shuffledQuestions[state.currentQuestion].correctAnswerIndex) {
         return "bg-accent-red";
       } else {
         return "bg-neutral-800";
@@ -50,21 +43,21 @@ const MultipleChoice = ({
 
   return (
     <>
-      {!quizOver && (
+      {!state.quizOver && (
         <p className="-mt-16 -mb-8 w-full text-neutral-700">
           Kata created by{" "}
           <a
-            href={attributionLink}
+            href={state.shuffledQuestions[state.currentQuestion].attributionLink}
             target="_blank" rel="noopener noreferrer"
             className="text-neutral-800"
           >
-            {attribution}
+            {state.shuffledQuestions[state.currentQuestion].attribution}
           </a>
         </p>
       )}
-      {quizOver && userChoices[currentQuestion] !== correctAnswerIndex && (
+      {state.quizOver && state.userChoices[state.currentQuestion] !== state.shuffledQuestions[state.currentQuestion].correctAnswerIndex && (
         <a
-          href={furtherReading}
+          href={state.shuffledQuestions[state.currentQuestion].furtherReading}
           target="_blank" rel="noopener noreferrer"
           className="-mt-[75px] ml-[70px] md:-mt-[80px] md:ml-[250px] lg:ml-[200px] text-neutral-100 py-2 px-4 rounded-full bg-accent-navy"
         >
@@ -72,12 +65,12 @@ const MultipleChoice = ({
         </a>
       )}
       <ol className="flex flex-col gap-6 text-left relative">
-        {choices.map((choice, index) => (
+        {state.shuffledQuestions[state.currentQuestion].choices.map((choice, index) => (
           <li key={index}>
             <button
-              className={` text-neutral-100 py-2 px-4 rounded-lg ${determineButtonBgColorBasedOnState(index)}`}
+              className={`text-neutral-100 py-2 px-4 rounded-lg ${determineButtonBgColorBasedOnState(index)}`}
               onClick={() => handleQuestionClick(index)}
-              disabled={quizOver}
+              disabled={state.quizOver}
             >
               {choice}
             </button>

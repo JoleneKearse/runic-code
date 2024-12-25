@@ -2,31 +2,17 @@ import QuestionContainer from "../components/QuestionContainer";
 import QuestionContainerSkeleton from "../components/QuestionContainerSkeleton";
 
 const QuizPage = ({
-  quizOver,
-  setQuizOver,
-  setCorrectAnswers,
-  userChoices,
-  setUserChoices,
-  isLoading,
-  setIsLoading,
-  shuffledQuestions,
-  error,
+  state,
+  dispatch,
 }) => {
   return (
     <article className="h-screen min-w-[319px] w-9/12 max-w-[720px] mx-auto px-2">
-      {isLoading ? (
+      {state.isLoading ? (
         <QuestionContainerSkeleton />
       ) : (
         <QuestionContainer
-          quizOver={quizOver}
-          setQuizOver={setQuizOver}
-          setCorrectAnswers={setCorrectAnswers}
-          userChoices={userChoices}
-          setUserChoices={setUserChoices}
-          isLoading={isLoading}
-          setIsLoading={setIsLoading}
-          shuffledQuestions={shuffledQuestions}
-          error={error}
+          state={state}
+          dispatch={dispatch}
         />
       )}
     </article>
