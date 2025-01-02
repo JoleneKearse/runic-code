@@ -1,7 +1,15 @@
 const express = require("express");
 const cors = require("cors");
+const { Pool } = require("pg");
+
+require("dotenv").config();
+
 const app = express();
 const PORT = process.env.PORT || 5000;
+
+const pool = new Pool({
+	connectionString: process.env.DATABASE_URL,
+});
 
 app.use(cors());
 
@@ -399,8 +407,14 @@ const questions = [
 	},
 ];
 
-app.get("/api/questions", (req, res) => {
-	res.json(questions);
+app.get("/api/questions", async (req, res) => {
+	try {
+		const { rows } = await pool.query("SELECT * FROM questions LIMIT 10");
+		res.json(rows);
+	} catch {
+		console.error("Error fetching questions");
+		res.status(500).json({ error: "Failed to fetch questions" });
+	}
 });
 
 app.listen(PORT, () => {
