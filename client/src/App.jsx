@@ -66,11 +66,12 @@ function App() {
   useEffect(() => {
     const fetchQuestions = async () => {
       try {
-        const response = await axios.get(
-          process.env.NODE_ENV === "production"
-            ? "https://runic-code-server.onrender.com/api/questions"
-            : "http://localhost:5000/api/questions"
-        );
+        // const response = await axios.get(
+        //   process.env.NODE_ENV === "production"
+        //     ? "https://runic-code-server.onrender.com/api/questions"
+        //     : "http://localhost:5000/api/questions"
+        // );
+        const response = await axios.get("https://runic-code-server.onrender.com/api/questions");
         const questions = response.data;
         dispatch({ type: "SET_SHUFFLED_QUESTIONS", payload: shuffleArray(questions).slice(0, 10) });
       } catch (error) {
@@ -95,11 +96,10 @@ function App() {
             state={state}
             dispatch={dispatch}
           />} />
-        <Route path="/results" element={
-          <ResultsPage
-            state={state}
-            dispatch={dispatch}
-          />} />
+        <Route
+          path="/results"
+          element={<ResultsPage state={state} dispatch={dispatch} />}
+        />
       </Routes>
     </main>
   )
