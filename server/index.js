@@ -10,11 +10,7 @@ const pool = new Pool({
 	connectionString: process.env.DATABASE_URL,
 });
 
-app.use(
-	cors({
-		origin: ["http://127.0.0.1:5173/", "https://runic-code.onrender.com/"],
-	})
-);
+app.use(cors({ origin: "*" }));
 
 // const questions = [
 // 	{
