@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Code from "./Code";
 import MultipleChoice from "./MultipleChoice";
@@ -8,7 +8,12 @@ const QuestionContainer = ({
   state,
   dispatch,
 }) => {
+  const [selectedChoice, setSelectedChoice] = useState(null);
   const navigate = useNavigate();
+
+  useEffect(() => {
+      setSelectedChoice(null);
+    }, [state.currentQuestion]);
 
   const setButtonText = () => {
     if (!state.quizOver) {
@@ -29,16 +34,22 @@ const QuestionContainer = ({
   };
 
   const handleClick = () => {
-    // prevent user from moving to next question without answering
-    if (state.userChoices[state.currentQuestion] === null) {
-      alert("The Jarl demands an answer!");
+    // on QuizPage
+    if (selectedChoice === null && !state.quizOver) {
+      alert("Jarl demands an answer!");
       return;
     };
 
-    // on QuizPage
     if (!state.quizOver) {
       if (state.currentQuestion !== 9) {
         dispatch({ type: "SET_CURRENT_QUESTION", payload: state.currentQuestion + 1 });
+        dispatch({ type: "SET_CORRECT_ANSWERS", payload: state.correctAnswers + 1 });
+        dispatch({
+          type: "SET_USER_CHOICES",
+          payload: state.userChoices.map((choice, idx) =>
+            idx === state.currentQuestion ? idx : choice
+          ),
+        });
       } else {
         // move to ResultsPage
         dispatch({ type: "SET_QUIZ_OVER", payload: true });
@@ -71,13 +82,15 @@ const QuestionContainer = ({
       }
       {state.currentQuestion !== 10 &&
         <MultipleChoice
-          dispatch={dispatch}
           state={state}
+          selectedChoice={selectedChoice}
+          setSelectedChoice={setSelectedChoice}
         />
       }
       <Button
         text={setButtonText()}
         onClick={handleClick}
+        disabled={state.userChoices[state.currentQuestion] === null}
       />
     </article>
   )

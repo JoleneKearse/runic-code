@@ -1,40 +1,35 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 const MultipleChoice = ({
   state,
-  dispatch,
+  selectedChoice,
+  setSelectedChoice,
 }) => {
-  const [selectedChoice, setSelectedChoice] = useState(null);
-
-  useEffect(() => {
-    setSelectedChoice(null);
-  }, [state.currentQuestion]);
-
   const handleQuestionClick = (index) => {
     setSelectedChoice(index);
-
-    if (!state.quizOver && index === state.shuffledQuestions[state.currentQuestion].correctAnswerIndex) {
-      dispatch({ type: "SET_CORRECT_ANSWERS", payload: state.correctAnswers + 1 });
-    };
-
-    dispatch({
-      type: "SET_USER_CHOICES",
-      payload: state.userChoices.map((choice, idx) =>
-        idx === state.currentQuestion ? index : choice
-      ),
-    });
   };
 
   const determineButtonBgColorBasedOnState = (index) => {
     if (!state.quizOver) {
+      // color current user choice
       return selectedChoice === index ? "bg-neutral-900" : "bg-neutral-800";
     }
 
+    // if (state.quizOver) {
+    //   if (state.correctAnswers[state.currentQuestion] === state.shuffledQuestions[state.currentQuestion].correctAnswerIndex && index === state.shuffledQuestions[state.currentQuestion].correctAnswerIndex) {
+    //     return "bg-accent-pink";
+    //   } else if (state.userChoices[state.currentQuestion] === index && index !== state.shuffledQuestions[state.currentQuestion].correctAnswerIndex) {
+    //     return "bg-accent-red";
+    //   } else {
+    //     return "bg-neutral-800";
+    //   }
+    // }
+    // TODO This is reversed somehow.
     if (state.quizOver) {
       if (index === state.shuffledQuestions[state.currentQuestion].correctAnswerIndex) {
-        return "bg-accent-pink";
-      } else if (state.userChoices[state.currentQuestion] === index && index !== state.shuffledQuestions[state.currentQuestion].correctAnswerIndex) {
         return "bg-accent-red";
+      } else if (state.userChoices[state.currentQuestion] === index && index !== state.shuffledQuestions[state.currentQuestion].correctAnswerIndex) {
+        return "bg-accent-pink";
       } else {
         return "bg-neutral-800";
       }
@@ -55,6 +50,7 @@ const MultipleChoice = ({
           </a>
         </p>
       )}
+      {/* TODO This is reversed somehow. */}
       {state.quizOver && state.userChoices[state.currentQuestion] !== state.shuffledQuestions[state.currentQuestion].correctAnswerIndex && (
         <a
           href={state.shuffledQuestions[state.currentQuestion].furtherReading}
