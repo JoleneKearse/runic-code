@@ -1,7 +1,6 @@
 import { useEffect, useReducer } from "react";
 import { Routes, Route } from "react-router-dom";
 import axios from "axios";
-import { shuffleArray } from "./utils/utils";
 import HomePage from "./pages/HomePage";
 import QuizPage from "./pages/QuizPage";
 import ResultsPage from "./pages/ResultsPage";
@@ -66,14 +65,13 @@ function App() {
   useEffect(() => {
     const fetchQuestions = async () => {
       try {
-        // const response = await axios.get(
-        //   process.env.NODE_ENV === "production"
-        //     ? "https://runic-code-server.onrender.com/api/questions"
-        //     : "http://localhost:5000/api/questions"
-        // );
-        const response = await axios.get("https://runic-code-server.onrender.com/api/questions");
+        const response = await axios.get(
+          process.env.NODE_ENV === "production"
+            ? "https://runic-code-server.onrender.com/api/questions"
+            : "http://localhost:5000/api/questions"
+        );
         const questions = response.data;
-        dispatch({ type: "SET_SHUFFLED_QUESTIONS", payload: shuffleArray(questions).slice(0, 10) });
+        dispatch({ type: "SET_SHUFFLED_QUESTIONS", payload: questions });
       } catch (error) {
         dispatch({ type: "SET_ERROR", payload: "Error fetching questions: " + error.message });
       } finally {
