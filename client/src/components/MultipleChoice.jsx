@@ -15,21 +15,13 @@ const MultipleChoice = ({
       return selectedChoice === index ? "bg-neutral-900" : "bg-neutral-800";
     }
 
-    // if (state.quizOver) {
-    //   if (state.correctAnswers[state.currentQuestion] === state.shuffledQuestions[state.currentQuestion].correctAnswerIndex && index === state.shuffledQuestions[state.currentQuestion].correctAnswerIndex) {
-    //     return "bg-accent-pink";
-    //   } else if (state.userChoices[state.currentQuestion] === index && index !== state.shuffledQuestions[state.currentQuestion].correctAnswerIndex) {
-    //     return "bg-accent-red";
-    //   } else {
-    //     return "bg-neutral-800";
-    //   }
-    // }
-    // TODO This is reversed somehow.
+    // ResultsPage
+    // This is actually reversed, but it works!
     if (state.quizOver) {
       if (index === state.shuffledQuestions[state.currentQuestion].correctAnswerIndex) {
-        return "bg-accent-red";
-      } else if (state.userChoices[state.currentQuestion] === index && index !== state.shuffledQuestions[state.currentQuestion].correctAnswerIndex) {
         return "bg-accent-pink";
+      } else if (state.userChoices[state.currentQuestion] === index && index !== state.shuffledQuestions[state.currentQuestion].correctAnswerIndex) {
+        return "bg-accent-red";
       } else {
         return "bg-neutral-800";
       }
