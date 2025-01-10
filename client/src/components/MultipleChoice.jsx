@@ -27,6 +27,10 @@ const MultipleChoice = ({
     }
   };
 
+  console.log("quizOver:", state.quizOver);
+  console.log("userChoice:", state.userChoices[state.currentQuestion]);
+  console.log("correctAnswerIndex:", state.shuffledQuestions[state.currentQuestion].correctAnswerIndex);
+
   return (
     <>
       {!state.quizOver && (

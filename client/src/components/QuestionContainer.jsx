@@ -41,13 +41,24 @@ const QuestionContainer = ({
       return;
     };
 
+    // on ResultsPage
+    if (state.quizOver) {
+      if (state.currentQuestion !== 9) {
+        dispatch({ type: "SET_CURRENT_QUESTION", payload: state.currentQuestion + 1 });
+      } else {
+        // reset quiz
+        dispatch({ type: "SET_QUIZ_OVER", payload: false });
+        dispatch({ type: "SET_CORRECT_ANSWERS", payload: 0 });
+        dispatch({ type: "SET_USER_CHOICES", payload: Array.from({ length: 10 }).fill(null) });
+        dispatch({ type: "SET_CURRENT_QUESTION", payload: 0 });
+        navigate("/quiz");
+      }
+    }
+
+    // on QuizPage
     if (!state.quizOver) {
       if (state.currentQuestion < 10) {
         dispatch({ type: "SET_CURRENT_QUESTION", payload: state.currentQuestion + 1 });
-
-        if (selectedChoice === state.shuffledQuestions[state.currentQuestion].correctAnswerIndex && state.currentQuestion !== 10) {
-          dispatch({ type: "SET_CORRECT_ANSWERS", payload: state.correctAnswers + 1 });
-        };
 
         dispatch({
           type: "SET_USER_CHOICES",
@@ -55,6 +66,10 @@ const QuestionContainer = ({
             idx === state.currentQuestion ? selectedChoice : choice
           ),
         });
+
+        if (selectedChoice === state.shuffledQuestions[state.currentQuestion].correctAnswerIndex && state.currentQuestion !== 10) {
+          dispatch({ type: "SET_CORRECT_ANSWERS", payload: state.correctAnswers + 1 });
+        };
       }
 
       // move to ResultsPage
@@ -64,25 +79,12 @@ const QuestionContainer = ({
         navigate("/results");
       }
     }
-
-    // on ResultsPage
-    if (state.quizOver) {
-      if (state.currentQuestion !== 9) {
-        dispatch({ type: "SET_CURRENT_QUESTION", payload: state.currentQuestion + 1 });
-      } else {
-        // reset quiz
-        dispatch({ type: "SET_QUIZ_OVER", payload: false });
-        dispatch({ type: "SET_CORRECT_ANSWERS", payload: 0 });
-        dispatch({ type: "SET_USER_CHOICES", payload: [] });
-        dispatch({ type: "SET_CURRENT_QUESTION", payload: 0 });
-        navigate("/quiz");
-      }
-    }
   };
 
   return (
     <article className="flex flex-col gap-16 py-10">
-      {state.error && <p className="text-red-500 font-bold">{state.error}</p>}
+      {state.error && <p className="text-red-500 font-bold my-10">{state.error}</p>}
+
       {/* Display titles on Quiz & Results Pages but not for last */}
       {state.currentQuestion < 10 && <h2 className="text-2xl font-black -mb-10 md:text-3xl lg:text-5xl">{state.quizOver ? "Omen" : "Rune"} {state.currentQuestion + 1}</h2>}
 
@@ -100,7 +102,6 @@ const QuestionContainer = ({
       <Button
         text={setButtonText()}
         onClick={handleClick}
-        disabled={state.userChoices[state.currentQuestion] === null}
       />
     </article>
   )
