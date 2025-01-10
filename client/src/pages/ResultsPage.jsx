@@ -30,7 +30,7 @@ const ResultsPage = ({
         </div>
       ) : (
         <article className="h-screen min-w-[319px] w-9/12 w-[500px] max-w-[720px] mx-auto px-2">
-          <div className="mt-6 py-2 px-4 bg-accent-pink rounded-lg">
+          <div className="mt-6 py-2 px-4 bg-accent-pink rounded-lg text-center text-balance">
             <p className="text-neutral-900 text-3xl font-black md:text-4xl lg:text-5xl">
               You slayed {state.correctAnswers} answer{state.correctAnswers !== 1 ? "s" : ""}!
             </p>

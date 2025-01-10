@@ -42,17 +42,23 @@ const QuestionContainer = ({
     };
 
     if (!state.quizOver) {
-      dispatch({ type: "SET_CURRENT_QUESTION", payload: state.currentQuestion + 1 });
-      dispatch({ type: "SET_CORRECT_ANSWERS", payload: state.correctAnswers + 1 });
-      dispatch({
-        type: "SET_USER_CHOICES",
-        payload: state.userChoices.map((choice, idx) =>
-          idx === state.currentQuestion ? selectedChoice : choice
-        ),
-      });
+      if (state.currentQuestion < 10) {
+        dispatch({ type: "SET_CURRENT_QUESTION", payload: state.currentQuestion + 1 });
 
+        if (selectedChoice === state.shuffledQuestions[state.currentQuestion].correctAnswerIndex && state.currentQuestion !== 10) {
+          dispatch({ type: "SET_CORRECT_ANSWERS", payload: state.correctAnswers + 1 });
+        };
+
+        dispatch({
+          type: "SET_USER_CHOICES",
+          payload: state.userChoices.map((choice, idx) =>
+            idx === state.currentQuestion ? selectedChoice : choice
+          ),
+        });
+      }
+
+      // move to ResultsPage
       if (state.currentQuestion === 10) {
-        // move to ResultsPage
         dispatch({ type: "SET_QUIZ_OVER", payload: true });
         dispatch({ type: "SET_CURRENT_QUESTION", payload: 0 });
         navigate("/results");

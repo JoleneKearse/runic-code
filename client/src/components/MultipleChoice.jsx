@@ -16,11 +16,10 @@ const MultipleChoice = ({
     }
 
     // ResultsPage
-    // This is actually reversed, but it works!
     if (state.quizOver) {
       if (index === state.shuffledQuestions[state.currentQuestion].correctAnswerIndex) {
         return "bg-accent-pink";
-      } else if (state.userChoices[state.currentQuestion] === index && index !== state.shuffledQuestions[state.currentQuestion].correctAnswerIndex) {
+      } else if (index !== state.shuffledQuestions[state.currentQuestion].correctAnswerIndex && index === state.userChoices[state.currentQuestion]) {
         return "bg-accent-red";
       } else {
         return "bg-neutral-800";
@@ -42,7 +41,7 @@ const MultipleChoice = ({
           </a>
         </p>
       )}
-      {/* TODO This is reversed somehow. */}
+
       {state.quizOver && state.userChoices[state.currentQuestion] !== state.shuffledQuestions[state.currentQuestion].correctAnswerIndex && (
         <a
           href={state.shuffledQuestions[state.currentQuestion].furtherReading}
