@@ -390,6 +390,104 @@ const questions = [
 		level: 8,
 		kataLink: "https://www.codewars.com/kata/57a1fd2ce298a731b20006a4",
 	},
+	{
+		code: `function sleipnir(n) {
+	const numArr = n.toString().split("").map(digit => +digit);
+	for (let i = 0; i < numArr.length; i++) {
+		if (numArr[i] > numArr[i + 1]) return false;
+	}
+	return true;
+}`,
+		choices: [
+			"Checks if the digits of a number are in ascending order.",
+			"Returns true if the number is even.",
+			"Checks if the digits of a number are unique.",
+			"Checks if the digits of a number are in descending order.",
+		],
+		correctAnswerIndex: 0,
+		attribution: "MrZizoScream",
+		attributionLink: "https://www.codewars.com/users/MrZizoScream",
+		furtherReading:
+			"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Unary_plus",
+		level: 7,
+		kataLink: "https://www.codewars.com/kata/5a87449ab1710171300000fd/",
+	},
+	{
+		code: `function astrid(cc) {
+	const allButLast4 = cc.slice(0, -4);
+	const hashed = allButLast4.split("").map(char => char.replace(char, "#")).join("");
+	return hashed + cc.slice(-4);
+}`,
+		choices: [
+			"Replaces only the first four characters in a string with '#'.",
+			"Reverses a string and replaces all vowels with '#'.",
+			"Replaces all characters in a string with '#' except the last four.",
+			"Converts the last four characters of a string to uppercase.",
+		],
+		correctAnswerIndex: 2,
+		attribution: "samranjbari",
+		attributionLink: "https://www.codewars.com/users/samranjbari",
+		furtherReading:
+			"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace",
+		level: 7,
+		kataLink: "https://www.codewars.com/kata/5412509bd436bd33920011bc",
+	},
+	{
+		code: `function valkyrie(array1, array2) {
+	return array1.filter((word1) =>
+		array2.some((word2) => word2.includes(word1))
+	).sort();
+}`,
+		choices: [
+			"Finds the common elements between array1 and array2 and removes duplicates.",
+			"Finds all elements in array1 that are substrings of any element in array2 and sorts them.",
+			"Sorts array1 based on the length of elements in array2.",
+			"Returns a sorted union of array1 and array2.",
+		],
+		correctAnswerIndex: 1,
+		attribution: "g964",
+		attributionLink: "https://www.codewars.com/users/g964",
+		furtherReading:
+			"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes",
+		level: 6,
+		kataLink: "https://www.codewars.com/kata/550554fd08b86f84fe000a58",
+	},
+	{
+		code: `function skadi(str) {
+	return str.replace(/[aeiou]/gi, '');
+}`,
+		choices: [
+			"Replaces all vowels in the string with '#'.",
+			"Counts the number of vowels in the string.",
+			"Converts all vowels in the string to uppercase.",
+			"Removes all vowels from the string.",
+		],
+		correctAnswerIndex: 3,
+		attribution: "osuushi",
+		attributionLink: "https://www.codewars.com/users/osuushi",
+		furtherReading:
+			"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/flags",
+		level: 7,
+		kataLink: "https://www.codewars.com/kata/52fba66badcd10859f00097e",
+	},
+	{
+		code: `function vikingr(array) {
+	return array.flat().sort((a, b) => a - b);
+}`,
+		choices: [
+			"Flattens a nested array and sorts the elements in ascending order.",
+			"Sorts a nested array without flattening it.",
+			"Flattens a nested array and returns the largest element.",
+			"Returns a nested array sorted by the length of its subarrays.",
+		],
+		correctAnswerIndex: 0,
+		attribution: "lilsweetcaligula",
+		attributionLink: "https://www.codewars.com/users/lilsweetcaligula",
+		furtherReading:
+			"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flat",
+		level: 7,
+		kataLink: "https://www.codewars.com/kata/57ee99a16c8df7b02d00045f",
+	},
 ];
 
 module.exports = questions;

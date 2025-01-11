@@ -12,7 +12,7 @@ app.get("/api/questions", async (req, res) => {
 		const shuffledQuestions = shuffleArray(questions).slice(0, 10);
 		res.json(shuffledQuestions);
 	} catch {
-		console.error("Error fetching questions");
+		console.error("Uh-oh - the enemy intercepted the questions!");
 		res.status(500).json({ error: "Failed to fetch questions" });
 	}
 });
