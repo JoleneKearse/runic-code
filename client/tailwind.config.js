@@ -30,6 +30,13 @@ export default {
 				fyord: "url('/background.webp')",
 			},
 		},
+		screens: {
+			sm: "640px",
+			md: "832px", // Change the default `md` breakpoint to 832px
+			lg: "1024px",
+			xl: "1280px",
+			"2xl": "1536px",
+		},
 	},
 	plugins: [],
 };
