@@ -4,6 +4,7 @@ import Code from "./Code";
 import MultipleChoice from "./MultipleChoice";
 import Button from "./Button";
 import QuizOver from "./QuizOver";
+import fetchQuestions from "../services/fetchQuestions";
 
 const QuestionContainer = ({
   state,
@@ -47,6 +48,9 @@ const QuestionContainer = ({
         dispatch({ type: "SET_CURRENT_QUESTION", payload: state.currentQuestion + 1 });
       } else {
         // reset quiz
+        fetchQuestions().then(questions => {
+          dispatch({ type: "SET_SHUFFLED_QUESTIONS", payload: questions });
+        });
         dispatch({ type: "SET_QUIZ_OVER", payload: false });
         dispatch({ type: "SET_CORRECT_ANSWERS", payload: 0 });
         dispatch({ type: "SET_USER_CHOICES", payload: Array.from({ length: 10 }).fill(null) });
