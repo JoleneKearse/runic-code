@@ -63,9 +63,11 @@ function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {
+    const controller = new AbortController();
+
     const fetchAndDispatchQuestions = async () => {
       try {
-        const questions = await fetchQuestions();
+        const questions = await fetchQuestions({ signal: controller.signal });
         dispatch({ type: "SET_SHUFFLED_QUESTIONS", payload: questions });
       } catch (error) {
         dispatch({ type: "SET_ERROR", payload: "Error fetching questions: " + error.message });
@@ -74,6 +76,8 @@ function App() {
       }
     };
     fetchAndDispatchQuestions();
+
+    return () => controller.abort();
   }, []);
 
   useEffect(() => {
